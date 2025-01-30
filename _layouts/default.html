@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <title>{{ page.title }}</title>
-  {% feed_meta %}
-  {% seo %}
-  {% include styling.html %}
+    <meta charset="utf-8">
+    <title>{{ page.title }}</title>
+    {% feed_meta %}
+    {% seo %}
+    {% include styling.html %}
 </head>
 <body>
-  {% include navigation.html %}
-  {{ content }}
-  {% include scripts.html %}
+{% include navigation.html %}
+<main id="main" class="container">
+    {{ content }}
+</main>
+<div id="footer">
+{% include footer.html %}
+</div>
+{% include scripts.html %}
 </body>
 </html>
