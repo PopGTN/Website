@@ -15,7 +15,7 @@ footer, #footer {
 }
 
 
-#main, .body-color.body-color, #main-container .container {
+#main, .body-color, #main-container .container {
     background-color: var(--bs-body-bg) !important;
 }
 
