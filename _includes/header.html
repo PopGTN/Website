@@ -1,0 +1,80 @@
+{% comment %}
+Properties:
+- header : Boolean
+- headerImage : string
+- headerTitle : string
+- headerSubtitle : string
+- headerHeight : string
+- headerTextColor : string
+- headerImagePosition : string
+- headerImageRepeat : string
+- headerBorderBottomColor : string
+- headerClasses : string
+- headerTextClasses : string
+- headerBgColor : string
+
+{% endcomment %}
+{% if page.header != false %}
+<header   class="container bg- {{ page.headerClasses | default: '' }}"
+        style=" background-color: {{  page.headerBgColor | default: 'var(--header)'}};
+
+
+        min-height: {{ page.headerHeight | default: '258px' }};
+
+        justify-content: flex-start;
+        background-size: {{ page.headerImageSize | default: 'cover' }};
+        background-position: {{ page.headerImagePosition | default: 'center' }};
+        background-repeat: {{ page.headerImageRepeat  | default: 'no-repeat' }};
+        display: flex;
+        align-items: center;
+        {% if page.headerImage %}
+           background-image: url('{{ page.headerImage }}');
+        {% endif %}
+">
+    <div class="mx-auto {{ page.headerTextClasses | default: '' }}">
+        <div class="mx-auto flex items-center justify-between">
+            <h1 class="display-1" style="
+                width: fit-content;
+                margin: auto;
+
+                {% if page.headerTextColor %}
+                    color: {{ page.headerTextColor }};
+                {% endif %}
+
+                margin-bottom: 0.5rem;
+
+                {% if page.headerBorderBottomColor %}
+                    border-bottom-color: {{ page.headerBorderBottomColor }};
+                {% endif %}
+
+                border-bottom-style: solid;
+                border-bottom-width: 3px;"
+
+        {% if page.headerTitle %}
+            >{{ page.headerTitle }}</h1>
+        {% else %}
+            >{{ page.title }}</h1>
+        {% endif %}
+
+
+        {% if page.headerSubtitle %}
+    <p class="fs-4" style="
+        width: fit-content;
+        margin: auto;
+        {% if page.headerTextColor %}
+            color: {{ page.headerTextColor }};
+        {% endif %}
+
+        margin-bottom: 0.5rem;
+
+        {% if page.headerBorderBottomColor %}
+            border-bottom-color: {{ page.headerBorderBottomColor }};
+        {% endif %}
+
+
+    ">{{ page.headerSubtitle }}</p>
+            {% endif %}
+        </div>
+    </div>
+</header>
+{% endif %}
