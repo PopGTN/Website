@@ -10,24 +10,25 @@ headerSubtitle: "My my you want to learn about me?"
 headerClasses: "bg-custom-blue"
 
 headerTextClasses: "bg-body-tertiary text-body-emphasis text-body shadow-lg p-3 mb-5 rounded bg-opacity-75"
-toc : "####  Table Of Contents \n
-1.  [About Me](#AboutMe)\n
-2.  [Programming Languages](#Programming-Languages) \n
-3.  [Skills](#Skills)\n
-4.  [Experience](#Experience)
-"
+toc:
+  - "About Me"
+  - "Programming Languages"
+  - "Skills"
+  - "Experience"
 ---
+
 <!---
 ####  Table Of Contents
-1.  [About Me](#AboutMe)
-2.  [Programming Languages](#Programming-Languages) 
+1.  [About Me](#About Me)
+2.  [Programming Languages](#Programming Languages) 
 3.  [Skills](#Skills)
 4.  [Experience](#Experience)
 
 
 !-->
-<a id="#AboutMe"></a>
+
 # About Me
+
 
 Joshua Mckenna, who is he? Well, I am just a random guy who is 22 years old and loves making and creating things from my
 imagination, starting from the time I was young and building things like a house module out of lego... then switching to
@@ -36,43 +37,55 @@ Minecraft server called Swiftraid, a faction server with its own custom plugins.
 Duty on PS4 and a lot of other games. I enjoy mountain biking, four-wheeling, snorkeling, and a lot more.
 
 
+<figure id="picture" class="figure border-2 border-dark py-2 px-2  mx-2 mb-2 mt-1 float-lg-end" style="width: fit-content; height: fit-content;">
+<picture style="height: fit-content; width: fit-content;">
+    <!-- <source media="(min-width: 1200px)" srcset="/about/assets/profile_250x333.jpg">-->
+    <source media="(min-width: 992px)" srcset="/about/assets/profile_200x267.jpg">
+    <source media="(min-width: 992px)" srcset="/about/assets/profile_150x200.jpg">
+    <!--<source media="(min-width: 576px)" srcset="/about/assets/profile_100x133.jpg">-->
+    <img src="/about/assets/profile_150x200.jpg" class="figure-img img-fluid rounded" alt="A picture of Joshua">
+</picture>
+<p class="px-2 mt-0 m-0">
+</p><figcaption id="photoFig" class="figure-caption fs-6">A picture of Joshua Mckenna
+</figcaption>
+</figure>
 
-## Skills <a id="Skills"></a>
+
+## Skills
 
 ----------------------------------
 
 These are thing that I learned from school or from work experience that i'm able to do!
 
--   Business Analysis
--   Software Programmer
--   Networking
--   (In Training) Light Equipment Operator
--   Lawn detailing (lawn Maintenance)
--   Car Detailing
+- Business Analysis
+- Software Programmer
+- Networking
+- (In Training) Light Equipment Operator
+- Lawn detailing (lawn Maintenance)
+- Car Detailing
 
-## Program Languages <a id="Programming-Languages"></a>
+## Programming Languages
 
 ----------------------------------
 
 In this section, I discuss the programming languages that I have previously used. I also provide examples.
 
--   C# (Used for Mobile and PC applications)
-    -   Windows Form Applications
--   HTML,CSS, Javascript (Used for web design)
-    -   Bootstrap
--   Javascript
-    -   Bootstrap
-    -   JQuery
-    -   React
-    -   React Native
--   php
--   Java
-    -   Minecraft Server Plugins (Any Bukkit Based)
-    -   Console Applications
-    -   Spring framework
+- C# (Used for Mobile and PC applications)
+    - Windows Form Applications
+- HTML,CSS, Javascript (Used for web design)
+    - Bootstrap
+- Javascript
+    - Bootstrap
+    - JQuery
+    - React
+    - React Native
+- php
+- Java
+    - Minecraft Server Plugins (Any Bukkit Based)
+    - Console Applications
+    - Spring framework
 
-
-## Experience <a id="Experience"></a>
+## Experience
 
 ----------------------------------
 
@@ -82,7 +95,8 @@ In this section, I discuss the programming languages that I have previously used
 
 May 2023 - August 2023 (4 months)
 
-Summerside, Prince Edward Island, Canada I mostly drove a 20-ton roller and I would sometimes operate the skid steer and mini excavator. I had to learn patient because there was alot of sitting around.
+Summerside, Prince Edward Island, Canada I mostly drove a 20-ton roller and I would sometimes operate the skid steer and
+mini excavator. I had to learn patient because there was alot of sitting around.
 
 #### Centennial Carstar
 
@@ -116,10 +130,10 @@ October 2020 - September 2021 (1 year)
 
 I worked all the fesh departments
 
--   Meats and deli
--   Freezer & Cooler Department (Dairy kinda)
--   Produce
--   Bakery
+- Meats and deli
+- Freezer & Cooler Department (Dairy kinda)
+- Produce
+- Bakery
 
 #### Grass Cutting
 
@@ -127,4 +141,5 @@ I worked all the fesh departments
 
 2018 - 2023 (4 years)
 
-I used a 0 zero turn and saved 7 hours or more each week on one guy's yard. I took delight in my lawn mowing, and it remains my favourite pastime. work.
+I used a 0 zero turn and saved 7 hours or more each week on one guy's yard. I took delight in my lawn mowing, and it
+remains my favourite pastime. work.

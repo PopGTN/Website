@@ -31,12 +31,15 @@ footer, #footer {
 .max-75{
     max-width: 75ch;
 }
-.document-fluid h1, .document-fluid h2, .document-fluid h3, .document-fluid h4, .document-fluid h5, .document-fluid h6, .document-fluid p {
+.document-fluid h1, .document-fluid h2, .document-fluid h3, .document-fluid h4, .document-fluid h5, .document-fluid h6,
+.document-fluid p {
     max-width: 75ch;
     @media screen and (max-width: 768px) {
         max-width: 100%;
     }
 }
+
+
 .document {
     max-width: 75ch;
     @media screen and (max-width: 768px) {

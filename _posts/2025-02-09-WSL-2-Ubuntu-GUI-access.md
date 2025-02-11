@@ -1,7 +1,13 @@
 ---
-layout: post
+layout: tocPost
 title: Wsl 2 Ubuntu Gnome/XFCE4 GUI Acccess
+header: false
 author: Joshua Mckenna
+
+toc:
+  - "Step 1: Setting Up WSL2 with Ubuntu on Windows"
+  - "Step 2: Install XFCE4 or Ubuntu Desktop Gnome"
+  - "Step 2-1:"  
 ---
 
 This post will cover how to gain access to ubuntu gnome or XFCE4 GUI. This wont use xrdp. It will use x server which i find to be more
@@ -9,7 +15,7 @@ stable. I figured I make a post to inform anyone else try to obtaining  the same
 none didn't work well. So with a little bit of research and combing many different methods into one. I came up with my
 own solution to the problem
 
-## Setting Up WSL2 with Ubuntu on Windows
+## Step 1: Setting Up WSL2 with Ubuntu on Windows
 
 This guide will walk you through the steps to install and set up Ubuntu on Windows Subsystem for Linux 2 (WSL2).
 
@@ -38,30 +44,63 @@ terminal
 
 #### Option 1: XFCE4
 Inside your WSL terminal (Ubuntu), update packages:
-```bash powershell
-sudo apt update && sudo apt upgrade -y
-```
 
+```
+{
+  "firstName": "John",
+  "lastName": "Smith",
+  "age": 25
+}
+```
 
 
 sudo apt install x11-apps -y
 
 Then, install **XFCE4** and additional goodies:
 
-bash
 
+{% highlight json linenos %}
+```json
+    {
+    "firstName": "John",
+    "lastName": "Smith",
+    "age": 25
+    }
+```
+{% endhighlight %}
+
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Page Title</title>
+    </head>
+    <body>
+    
+        <h1>My First Heading</h1>
+        <p>My first paragraph.</p>
+    
+    </body>
+</html>
+
+```
 
 This command will install xfce4 and its extra apps 
 
-```bash powershell
-`sudo apt install xfce4 xfce4-goodies -y`
+```bash
+    sudo apt install xfce4 xfce4-goodies -y
 ```
-> --- (Optional) Install a lightweight window manager: ---
+> (Optional) Install a lightweight window manager:
 
-bash
-```bash powershell
-sudo apt install dbus-x11 -y
+```bash 
+    sudo apt install dbus-x11 -y
 ```
 
-
+```json
+{
+  "firstName": "John",
+  "lastName": "Smith",
+  "age": 25
+}
+```
 ## 

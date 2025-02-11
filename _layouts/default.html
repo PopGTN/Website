@@ -7,13 +7,23 @@
     {% feed_meta %}
     {% seo %}
     {% include styling.html %}
+    {% if page.custom-css %}
+     <style>
+        {{ page.custom-css }}
+     </style>
+    {% endif %}
+    {% if page.custom-header-html %}
+    <style>
+        {{ page.custom-header-html }}
+    </style>
+    {% endif %}
 </head>
 <body>
 {% include navigation.html %}
 {% include header.html %}
-<main id="main" class="container content py-2">
+<div id="main" class="container content {% if !page.padding-x or !page.padding %} px-0 {% endif %} {% if !page.padding-y or !page.padding %} py-0 {% else %} py-2 {% endif %}">
     {{ content }}
-</main>
+</div>
 <div id="footer">
     {% include footer.html %}
 </div>

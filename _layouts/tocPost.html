@@ -1,0 +1,37 @@
+---
+layout: default
+---
+
+    <div class="row">
+        <aside class="pt-2  col-12 col-md-3 mb-1 flex-grow-1 position-sticky" style="position: sticky!important;">
+            <div id="tboc" class="card ">
+                <h5 class="px-1 bg-dark-subtle py-1 text-center">Table of Contents</h5>
+                <ol class="list-group-numbered">
+                    {% for product in page.toc %}
+                    <li class="list-group-item"><a href="#{{ product | downcase | replace: ' ', '-' | replace: ':', '' }}">{{ product }}</a></li>
+                    {% else %}:
+                    The collection is empty.
+                    {% endfor %}
+                </ol>
+            </div>
+        </aside>
+        <main id="main-container" class="body-color pt-2 col-12 col-md-9">
+            <article class="document-fluid">
+                <h1>{{ page.title }}</h1>
+
+                <p>
+                    {{ page.date | date_to_string }}
+                    {% assign author = site.authors | where: 'short_name', page.author | first %}
+                    {% if author %}
+                    - <a href="{{ author.url }}">{{ author.name }}</a>
+                    {% endif %}
+                </p>
+
+                {{ content }}
+
+            </article>
+        </main>
+<!--        <aside class="pt-2  col-auto flex-fill" style="position: sticky">
+
+        </aside>-->
+</div>

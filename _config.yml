@@ -1,3 +1,7 @@
+markdown: kramdown
+highlighter: rouge
+
+
 title-Prefix: "JoshuaMC: "
 
 collections:
@@ -20,6 +24,8 @@ defaults:
       type: "posts"
     values:
       layout: "post"
+      author: "Joshua Mckenna"
+      header: false
   - scope:
       path: ""
     values:

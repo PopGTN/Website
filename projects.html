@@ -1,20 +1,51 @@
 ---
-layout: doc
+layout: default
 title: Projects
+padding-x: false
+padding-y: false
+padding: true
+custom-css: "
+    .card  {
+        min-height: 100%;
+    }
+
+    .card-description {
+        flex: 1 0 auto !important;
+    }
+
+    .card-button {
+        flex-shrink: 0 !important;
+    }
+
+
+"
+
 ---
-<div class="pt-5">
+
+
+
+
+<div class="">
+    <div class="bg-secondary-subtle bg-gradient text-secondary  px-0 mx-0 ">
+        <div class="mx-5 py-3">
+        <h3>Github Repository's</h3>
+
+        Down below is a list of all my Repositorys from my github page there ranked from the most active to the least
+        active Repository.
+        </div>
+    </div>
     <div>
-        <div class="container-md">
-            <div class="row" id="repositories-list"></div>
+        <div class="container-fluid pt-5">
+            <div class="row row-cols-1 mx-md-3 gy-3 gy-md-5 row-cols-md-2" id="repositories-list"></div>
         </div>
         <div class="container mt-4">
             <ul class="pagination justify-content-center" id="pagination">
                 <li class="page-item">
-                    <a class="page-link" href="javascript:void(0);"
-                       onclick="previousPage()">Previous</a>
+                    <a id="previous-page" class="page-link" href="javascript:void(0);"
+                       onclick="previousPage()"><i class="bi bi-chevron-double-left"></i>Previous</a>
                 </li>
                 <li class="page-item">
-                    <a class="page-link" href="javascript:void(0);" onclick="nextPage()">Next</a>
+                    <a class="page-link" href="javascript:void(0);" onclick="nextPage()"> Next <i class="bi bi-chevron-double-right"></i></a>
                 </li>
             </ul>
         </div>

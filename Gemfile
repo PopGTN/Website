@@ -5,6 +5,13 @@ source "https://rubygems.org"
 # gem "rails"
 gem "jekyll"
 
+gem 'coderay'
+gem 'kramdown-syntax-coderay'
+gem 'rouge'
+gem 'thor'
+gem 'stringex'
+
+
 group :jekyll_plugins do
   gem "jekyll-sitemap"
   gem "jekyll-feed"

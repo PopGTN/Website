@@ -2,12 +2,25 @@
 layout: default
 ---
 
-<div class="container row mx-auto p-5 mb-5">
-<div class=" col-12 col-md-4  ">
-    {{ page.toc | markdownify }}
-</div>
+<div class="row">
+    <aside class="pt-2  col-12 col-md-3 mb-1" style="position: sticky">
+        <div id="tboc" class="card ">
+            <h5 class="px-1 bg-dark-subtle py-1 text-center">Table of Contents</h5>
+            <ol class="list-group-numbered">
+                {% for product in page.toc %}
+                <li class="list-group-item"><a href="#{{ product | downcase | replace: ' ', '-' | replace: ':', '' }}">{{ product }}</a></li>
+                {% else %}
+                The collection is empty.
+                {% endfor %}
+            </ol>
+        </div>
+    </aside>
+    <main id="main-container" class="body-color pt-2 col-12 col-md-9">
+        <article class=" document-p">
+            {{ content }}
+        </article>
+    </main>
+    <!--        <aside class="pt-2  col-auto flex-fill" style="position: sticky">
 
-<div class=" col-10 col-md-8 document-strict ">
-    {{ content }}
-</div>
+            </aside>-->
 </div>

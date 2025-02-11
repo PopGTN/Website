@@ -1,10 +1,14 @@
 
 const username = 'PopGTN';
-const perPage = 6;
+const perPage = 4;
 let currentPage = 1;
 // Function to handle the "Next" button
 function setCurrentPage(page) {
     currentPage = page;
+}
+
+function getCurrentPage() {
+    return currentPage
 }
 
 function nextPage() {
@@ -94,13 +98,18 @@ function displayRepositories(repositories) {
     } else {
         repositories.forEach((repo) => {
             const card = document.createElement('div');
-            card.className = 'col-md-12 mb-4'; // Display one card per row
+            card.className = 'col'; // Display one card per row
             card.innerHTML = `
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">${repo.name}</h5>
-            <p class="card-text">${repo.description || 'No description available'}</p>
-            <a href="${repo.html_url}" class="btn btn-primary">View on GitHub</a>
+            <div class="card-description">
+                <h5 class="card-title">${repo.name}</h5>
+                 <p class="card-text">${repo.description || 'No description available'}</p>
+            </div>
+            
+            <div class="card-button">
+                <a href="${repo.html_url}" class="btn btn-primary">View on GitHub</a>
+            </div>
           </div>
         </div>
       `;
