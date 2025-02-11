@@ -107,7 +107,7 @@ function displayRepositories(repositories) {
                  <p class="card-text">${repo.description || 'No description available'}</p>
             </div>
             
-            <div class="card-body mt-3">
+            <div class="card-body">
                 <a href="${repo.html_url}" class="btn btn-primary">View on GitHub</a>
             </div>
           </div>

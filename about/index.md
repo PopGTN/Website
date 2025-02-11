@@ -27,29 +27,33 @@ toc:
 
 !-->
 
-# About Me
-
-
-Joshua Mckenna, who is he? Well, I am just a random guy who is 22 years old and loves making and creating things from my
-imagination, starting from the time I was young and building things like a house module out of lego... then switching to
-Minecraft. Eventually, I got into building and moderating Minecraft servers like Lifeboat Network. I also ran my own 
-Minecraft server called Swiftraid, a faction server with its own custom plugins. In my free time, I also play Call of 
-Duty on PS4 and a lot of other games. I enjoy mountain biking, four-wheeling, snorkeling, and a lot more.
-
-
-<figure id="picture" class="figure border-2 border-dark py-2 px-2  mx-2 mb-2 mt-1 float-lg-end" style="width: fit-content; height: fit-content;">
-<picture style="height: fit-content; width: fit-content;">
-    <!-- <source media="(min-width: 1200px)" srcset="/about/assets/profile_250x333.jpg">-->
-    <source media="(min-width: 992px)" srcset="/about/assets/profile_200x267.jpg">
-    <source media="(min-width: 992px)" srcset="/about/assets/profile_150x200.jpg">
-    <!--<source media="(min-width: 576px)" srcset="/about/assets/profile_100x133.jpg">-->
-    <img src="/about/assets/profile_150x200.jpg" class="figure-img img-fluid rounded" alt="A picture of Joshua">
-</picture>
-<p class="px-2 mt-0 m-0">
-</p><figcaption id="photoFig" class="figure-caption fs-6">A picture of Joshua Mckenna
-</figcaption>
-</figure>
-
+<div class="row row-cols-1 row-cols-lg-2">
+    <div class="col">
+        <h1 id="about-me">About Me</h1>
+        <p class="">Joshua Mckenna, who is he? Well, I am just a random guy who is 22 years old and loves making and creating
+            things from my
+            imagination, starting from the time I was young and building things like a house module out of lego... then
+            switching to
+            Minecraft. Eventually, I got into building and moderating Minecraft servers like Lifeboat Network. I also
+            ran my own
+            Minecraft server called Swiftraid, a faction server with its own custom plugins. In my free time, I also
+            play Call of
+            Duty on PS4 and a lot of other games. I enjoy mountain biking, four-wheeling, snorkeling, and a lot
+            more.
+        </p>
+    </div>
+    <figure class="col figure border-2 border-dark mt-md-5" id="picture"
+            style="width: fit-content; height: fit-content;">
+        <picture style="height: fit-content; width: fit-content;">
+            <!-- <source media="(min-width: 1200px)" srcset="/about/assets/profile_250x333.jpg">-->
+            <source media="(min-width: 992px)" srcset="/about/assets/profile_200x267.jpg">
+            <source media="(min-width: 992px)" srcset="/about/assets/profile_150x200.jpg">
+<!--            <source media="(min-width: 576px)" srcset="/about/assets/profile_100x133.jpg">-->
+            <img alt="A picture of Joshua" class="figure-img img-fluid rounded" src="/about/assets/profile_150x200.jpg">
+        </picture>
+        <figcaption class="figure-caption fs-6" id="photoFig">A picture of Joshua Mckenna</figcaption>
+    </figure>
+</div>
 
 ## Skills
 

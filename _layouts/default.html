@@ -21,7 +21,7 @@
 <body>
 {% include navigation.html %}
 {% include header.html %}
-<div id="main" class="container content {% if !page.padding-x or !page.padding %} px-0 {% endif %} {% if !page.padding-y or !page.padding %} py-0 {% else %} py-2 {% endif %}">
+<div id="main" class="container content {% if page.padding-x or !page.padding %} px-0 {% endif %} {% if page.padding-y or !page.padding %} py-0 {% else %} py-2 {% endif %}">
     {{ content }}
 </div>
 <div id="footer">
