@@ -102,12 +102,12 @@ function displayRepositories(repositories) {
             card.innerHTML = `
         <div class="card">
           <div class="card-body">
-            <div class="card-description">
+            <div class="card-description my-2">
                 <h5 class="card-title">${repo.name}</h5>
                  <p class="card-text">${repo.description || 'No description available'}</p>
             </div>
             
-            <div class="card-button">
+            <div class="card-body mt-3">
                 <a href="${repo.html_url}" class="btn btn-primary">View on GitHub</a>
             </div>
           </div>
