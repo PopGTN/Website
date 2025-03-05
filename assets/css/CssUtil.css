@@ -40,7 +40,7 @@ footer, #footer {
 }
 
 
-.document {
+.document, .document * {
     max-width: 75ch;
     @media screen and (max-width: 768px) {
         max-width: 100%;

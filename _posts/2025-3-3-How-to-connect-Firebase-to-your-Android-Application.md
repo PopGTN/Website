@@ -7,7 +7,7 @@ tags: How-to
 thumbnail: /assets/images/posts/3-3-2025-How-to-connect-Firebase-to-your-Android-Application/maxresdefault2.jpg
 toc:
   - "Requirments"
-  - "Setting up a firebase project"
+  - "Creating a firebase project"
   - "Connecting a Firebase project to Android application"
   - "References" 
 ---
