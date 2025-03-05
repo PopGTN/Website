@@ -195,7 +195,7 @@ You can see and test the code for yourself to see how it works.
 
 
 #### Offical Docs
-- Repo to used coded - [https://bitbucket.org/joshuamckenna/firebaseresearchproject/src/main/](https://bitbucket.org/joshuamckenna/firebaseresearchproject/src/main/)
+- Repo to used coded - [https://bitbucket.org/joshuamcke...](https://bitbucket.org/joshuamckenna/firebaseresearchproject/src/main/)
 - Firebase console - [https://console.firebase.google.com/](https://console.firebase.google.com/)
 - Firebase Docs - [https://firebase.google.com/docs](https://firebase.google.com/docs)
 - Firebase Realtime Docs - [https://firebase.google.com/docs/database](https://firebase.google.com/docs/database)
