@@ -1,5 +1,5 @@
 ---
-short_name: Josh
+short_name: Joshua
 name: Joshua Mckenna
 position: Owner & Developer
 ---

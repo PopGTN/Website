@@ -1,3 +1,5 @@
+
+
 :root,
 [data-bs-theme=light] {
   --header: #d3d3d3;
@@ -10,6 +12,7 @@
   --bs-dropdown-link-active-bg: #8540f5 !important;
   /*    --bs-body-bg: #f0f0f0;
       --bs-body-bg-rgb: 240, 240, 240;*/
+
 }
 
 
@@ -19,6 +22,7 @@
   --body-bg: rgb(20, 20, 20);
   --bs-body-bg: #222222;
   --bs-body-bg-rgb: 34,34,34;
+
 }
 
 .navbar {
@@ -38,4 +42,13 @@
   background-color: #234099 !important;
 }
 
+#blogs a, #blogs .btn:hover, {
+  text-decoration: none !important;
+}
 
+#blogs a:hover {
+  text-decoration: underline;
+}
+
+#blogs {
+}

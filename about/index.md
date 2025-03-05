@@ -2,14 +2,14 @@
 layout: wikiDoc
 title: About Me
 headerImageRepeat: "repeat"
-headerImageSize: "2%"
+headerImageSize: "1.5%"
 headerImagePosition: top
 headerHeight: 300px
 headerImage: "/assets/images/logo.webp"
 headerSubtitle: "My my you want to learn about me?"
 headerClasses: "bg-custom-blue"
-
 headerTextClasses: "bg-body-tertiary text-body-emphasis text-body shadow-lg p-3 mb-5 rounded bg-opacity-75"
+
 toc:
   - "About Me"
   - "Programming Languages"

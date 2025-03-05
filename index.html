@@ -2,9 +2,87 @@
 # front matter tells Jekyll to process Liquid
 layout: default
 title: "Home"
+
 headerTitle: "Joshua Mckenna"
 headerSubtitle: "Welcome to Joshua Mckenna's personal website!"
-headerHeight: 500px
+
+headerImageRepeat: "repeat"
+headerImageSize: "1.5%"
+headerImagePosition: top
+headerHeight: 400px
+headerImage: "/assets/images/logo.webp"
+headerClasses: "bg-custom-blue"
+headerTextClasses: "bg-body-tertiary text-body-emphasis text-body shadow-lg px-5 py-4 mb-5 rounded bg-opacity-75"
 ---
 
+<div class="document mx-auto">
+    <h2>Latest Posts</h2>
+
+    <ul>
+        {% for post in site.posts %}
+        <li>
+            <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+            {% if post.description %}
+            {{ post.description }}
+            {% else %}
+            {{ post.excerpt }}
+            {% endif %}
+            <!--{% if post.thumbnail %}
+            <img src="{{ post.thumbnail }}" class=" border rounded document w-100 mb-5 mt-2" alt="{{ page.image-alt }}">
+            {% endif %}-->
+        </li>
+        {% endfor %}
+    </ul>
+
+</div>
+<!--Coming Soon. Just here to remind me what i want to do next here. Will make issue later-->
+<hr>
+<div class="">
+    <h2>Latest videos</h2>
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+        <div class="col">
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="card-body">
+
+                    <iframe class="img-thumbnail rounded-start " src="https://www.youtube.com/embed/X6TjMzZ8eak?si=W4k33tYIEevX7u7R&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <h5 class="card-title"><a href="https://youtu.be/X6TjMzZ8eak">Beginner's Guide to Firebase  Real time Database Integration with Android Java (2025)</a></h5>
+
+                    <p class="card-text">This Video Covers how to connect Firebase to your Android Application. With code provide in the description as two Appication as well. This video includes a full step by step guide to help you learn Firebase and all it's CRUD operations</p>
+
+
+                    <p class="card-text"><small class="text-body-secondary">Uploaded:  Feb 13, 2024</small></p>
+                </div>
+
+            </div>
+        </div>
+        <div class="col">
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="card-body">
+                    <iframe  class="img-thumbnail rounded-start" src="https://www.youtube.com/embed/v8GkqTYs6Kg?si=V6Xv6A9Nz-W710Hw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <h5 class="card-title"><a href="https://youtu.be/v8GkqTYs6Kg">How To Connect Firebase To Your Android Application</a></h5>
+                    <p class="card-text">This Video Covers how to connect Firebase to your Android Application. </p>
+
+                    <p class="card-text"><small class="text-body-secondary">Reuploaded: Mar 4, 2025</small></p>
+                </div>
+
+            </div>
+        </div>
+        <div class="col">
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="card-body">
+                    <iframe class="img-thumbnail rounded-start" width="560" height="315" src="https://www.youtube.com/embed/PHXl4q3APXc?si=TSCgOLLKdtqe94nh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>                    <h5 class="card-title"><a href="https://youtu.be/PHXl4q3APXc?si=TM2aLhUbqUbQ8fqq">Awesome Life Improving Tech Tips</a></h5>
+                    <p class="card-text">This video was done for school. The first version was copyrighted and was better. This version is still good. But if this video does well i might make another</p>
+
+                    <p class="card-text"><small class="text-body-secondary">Uploaded: Feb 6, 2022</small></p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+<div class="document mx-auto">
+    <h2>Latest Photography Photos</h2>
+    <p>(WIP)Coming Soon...</p>
+</div>
 

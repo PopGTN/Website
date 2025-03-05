@@ -1,14 +1,71 @@
 ---
 layout: default
-title: Blog
----
-<h1>Latest Posts</h1>
+title: Joshua's Blog
 
-<ul>
-    {% for post in site.posts %}
-    <li>
-        <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-        {{ post.excerpt }}
-    </li>
-    {% endfor %}
-</ul>
+headerImageRepeat: "repeat"
+headerImageSize: "1.5%"
+headerImagePosition: top
+headerHeight: 300px
+headerImage: "/assets/images/logo.webp"
+headerClasses: "bg-custom-blue"
+headerTextClasses: "bg-body-tertiary text-body-emphasis text-body shadow-lg px-5 py-4 mb-5 rounded bg-opacity-75"
+---
+<div class="container">
+    <h2>Latest Blog Posts</h2>
+
+    <!--<ul>
+        {% for post in site.posts %}
+        <li>
+            <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+            {% if post.description %}
+            {{ post.description }}
+            {% else %}
+            {{ post.excerpt }}
+            {% endif %}
+
+            {% if post.thumbnail %}
+            <img src="{{ post.thumbnail }}" class=" border rounded document w-100 mb-5 mt-2" alt="{{ page.image-alt }}">
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>-->
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        {% for post in site.posts %}
+        <div class="col">
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="card-body">
+                    <img src="{{ post.thumbnail }}" class="img-thumbnail rounded-start "
+                         alt="{{ page.thumbnail-alt }}">
+                    <h5 class="card-title"><a href="{{ post.url }}">{{ post.title }}</a></h5>
+                    {% if post.description %}
+                    <p class="card-text">{{ post.description }}</p>
+                    {% else %}
+                    <p class="card-text">{{ post.excerpt | truncate: 200 , "..." }}</p>
+                    {% endif %}
+
+                    <p class="card-text"><small class="text-body-secondary">Posted: {{ post.date |
+                        date_to_string }}</small></p>
+                </div>
+
+
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<div class="container">
+    <h2>Categorized</h2>
+    <p>
+        The blogs are Categorized below. So you can find then my posts about certian topics easier.
+    </p>
+    <div class="">
+        {% for tag in site.tags %}
+        <h3>{{ tag[0] }}</h3>
+        <ul>
+            {% for post in tag[1] %}
+            <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+            {% endfor %}
+        </ul>
+        {% endfor %}
+    </div>
+</div>

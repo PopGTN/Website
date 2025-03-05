@@ -8,22 +8,27 @@
     {% seo %}
     {% include styling.html %}
     {% if page.custom-css %}
-     <style>
-        {{ page.custom-css }}
-     </style>
-    {% endif %}
-    {% if page.custom-header-html %}
     <style>
-        {{ page.custom-header-html }}
+        {{ page.custom-css }}
     </style>
+    {% endif %}
+    {% if page.custom-head-html %}
+        {{  page.custom-head-html }}
     {% endif %}
 </head>
 <body>
 {% include navigation.html %}
 {% include header.html %}
-<div id="main" class="container content {% if page.padding-x or !page.padding %} px-0 {% endif %} {% if page.padding-y or !page.padding %} py-0 {% else %} py-2 {% endif %}">
+{% if page.custom-header-html %}
+    {{  page.custom-header-html }}
+{% endif %}
+<div id="main"
+     class="container content {% if page.padding-x or !page.padding %} px-0 {% endif %} {% if page.padding-y or !page.padding %} py-0 {% else %} py-2 {% endif %}">
+
     {{ content }}
 </div>
+
+
 <div id="footer">
     {% include footer.html %}
 </div>

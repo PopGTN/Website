@@ -4,6 +4,7 @@ title: Wsl 2 Ubuntu Gnome/XFCE4 GUI Acccess
 header: false
 author: Joshua Mckenna
 
+
 toc:
   - "Step 1: Setting Up WSL2 with Ubuntu on Windows"
   - "Step 2: Install XFCE4 or Ubuntu Desktop Gnome"
@@ -104,3 +105,10 @@ This command will install xfce4 and its extra apps
 }
 ```
 ## 
+
+
+{% highlight ruby linenos %}
+def foo
+puts 'foo'
+end
+{% endhighlight %}

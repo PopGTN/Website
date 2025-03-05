@@ -32,7 +32,7 @@ footer, #footer {
     max-width: 75ch;
 }
 .document-fluid h1, .document-fluid h2, .document-fluid h3, .document-fluid h4, .document-fluid h5, .document-fluid h6,
-.document-fluid p {
+.document-fluid p, .document-fluid img, .document img {
     max-width: 75ch;
     @media screen and (max-width: 768px) {
         max-width: 100%;
@@ -46,6 +46,8 @@ footer, #footer {
         max-width: 100%;
     }
 }
+
+.document,
 .document-strict {
     max-width: max(600px, 75ch);
     @media screen and (max-width: 768px) {
