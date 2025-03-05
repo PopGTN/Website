@@ -38,7 +38,7 @@ toc:
 ## About 
 You can watch the videos in the carousel for extra information. The steps below are short step by step guid that will show you how to set up firebase with your android application. This blog was a set of instruction from a school project as found in repo linked below. This repo provides example code for Creating, reading, update and deleting object from the firebase database. The videos link above will cover all of these operations. This document doesn't. It will show you how to link database to you application.
 
-[https://bitbucket.org/joshuamckenna/firebaseresearchproject/src/main/](https://bitbucket.org/joshuamckenna/firebaseresearchproject/src/main/)
+[firebaseresearchproject](https://bitbucket.org/joshuamckenna/firebaseresearchproject/src/main/)
 
 ###### Requirments 
 * Google Account
