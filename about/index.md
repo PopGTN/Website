@@ -89,61 +89,23 @@ In this section, I discuss the programming languages that I have previously used
     - Console Applications
     - Spring framework
 
+## Projects
+
+----------------------------------
+
+
+
+
 ## Experience
 
 ----------------------------------
 
-#### Curran & Briggs
+#### Thinking/big ####
 
-###### Construction Laborer
+###### (On the Job Training) Software Programmer ######
 
-May 2023 - August 2023 (4 months)
+February 2023 - April 2023 (4 months)
 
-Summerside, Prince Edward Island, Canada I mostly drove a 20-ton roller and I would sometimes operate the skid steer and
-mini excavator. I had to learn patient because there was alot of sitting around.
 
-#### Centennial Carstar
 
-###### Car Detailer
 
-June 2019 - May 2023 (4 years)
-
-Learned to take my time to clean cars with great detail
-
-#### Master Packaging Inc.
-
-###### General Laborer
-
-May 2022 - August 2022 (4 months)
-
-General Labour doing 2 day and then 2 nights - 12 hour shifts
-
-#### Sobeys
-
-###### Meat Associate
-
-September 2021 - May 2022 (9 months)
-
-I mostly Cleaned the tools and saws for meat department. Also use the meat grinder and packaged for ground beef
-
-#### Walmart Canada
-
-###### Fresh Associate
-
-October 2020 - September 2021 (1 year)
-
-I worked all the fesh departments
-
-- Meats and deli
-- Freezer & Cooler Department (Dairy kinda)
-- Produce
-- Bakery
-
-#### Grass Cutting
-
-###### Self employeed
-
-2018 - 2023 (4 years)
-
-I used a 0 zero turn and saved 7 hours or more each week on one guy's yard. I took delight in my lawn mowing, and it
-remains my favourite pastime. work.
