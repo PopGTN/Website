@@ -93,9 +93,6 @@ In this section, I discuss the programming languages that I have previously used
 
 ----------------------------------
 
-
-
-
 ## Experience
 
 ----------------------------------
