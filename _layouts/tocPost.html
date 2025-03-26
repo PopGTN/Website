@@ -2,41 +2,65 @@
 layout: default
 ---
 
-    <div class="row">
-        <aside class="pt-2  col-12 col-md-3 mb-1 flex-grow-1 position-sticky" style="position: sticky!important;">
-            <div id="tboc" class="card ">
-                <h5 class="px-1 bg-dark-subtle py-1 text-center">Table of Contents</h5>
-                <ul class="list-group-numbered gy-5">
-                    {% for product in page.toc %}
-                    <li class="list-group-item"><a class="link-underline link-underline-opacity-0 link-underline-opacity-100-hover" href="#{{ product | downcase | replace: ' ', '-' | replace: ':', '' }}">{{ product }}</a></li>
-                    {% else %}
-                    The Table of Contents is empty.
-                    {% endfor %}
-                </ul>
-            </div>
-        </aside>
-        <main id="main-container" class="body-color pt-2 col-12 col-md-9">
-            <article class="document">
-                <h1>{{ page.title }}</h1>
+<div class="row">
+    <aside class="pt-2  col-12 col-md-3 mb-1 flex-grow-1 position-sticky" style="position: sticky!important;">
+        <div id="tboc" class="card ">
+            <h5 class="px-1 bg-dark-subtle py-1 text-center">Table of Contents</h5>
+            <ul class=" gy-5">
+                {% for header in page.toc %}
 
-                <div>
-                    <hr>
-                    <p>
+                {% assign my_array = header | replace: ", ", "," %}
+
+                {% assign my_array2 = my_array | split: "," %}
+
+                {% if my_array2.size > 1 %}
+                <li class="">
+                    <a class="link-underline link-underline-opacity-0 link-underline-opacity-100-hover"
+                        href="#{{ header2 | downcase | replace: ' ', '-' | replace: ':', '' }}">{{ my_array2[0] }}</a>
+                    <ul class="gy-5">
+                        {% for header2 in my_array2 %}
+                            {% if header2 != my_array2[0] %}
+                                <li class=""><a
+                                        class="link-underline link-underline-opacity-0 link-underline-opacity-100-hover"
+                                        href="#{{ header2 | downcase | replace: ' ', '-' | replace: ':', '' }}">{{ header2 }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </li>
+                {% else %}
+                <li class=""><a
+                        class="link-underline link-underline-opacity-0 link-underline-opacity-100-hover"
+                        href="#{{ header | downcase | replace: ' ', '-' | replace: ':', '' }}">{{ header }}</a></li>
+                {% endif %}
+
+                {% else %}
+                The Table of Contents is empty.
+                {% endfor %}
+            </ul>
+        </div>
+    </aside>
+    <main id="main-container" class="body-color pt-2 col-12 col-md-9">
+        <article class="document">
+            <h1>{{ page.title }}</h1>
+
+            <div>
+                <hr>
+                <p>
                     {{ page.date | date_to_string }}
 
                     {% assign author = site.authors | where: 'short_name', page.author | first %}
                     {% if author %}
                     - <a class="link-underline link-underline-opacity-0" href="{{ author.url }}">{{ author.name }}</a>
                     {% endif %}
-                    </p>
-                    <hr>
-                </div>
+                </p>
+                <hr>
+            </div>
 
-                {{ content }}
+            {{ content }}
 
-            </article>
-        </main>
-<!--        <aside class="pt-2  col-auto flex-fill" style="position: sticky">
+        </article>
+    </main>
+    <!--        <aside class="pt-2  col-auto flex-fill" style="position: sticky">
 
-        </aside>-->
+            </aside>-->
 </div>

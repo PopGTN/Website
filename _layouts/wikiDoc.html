@@ -7,10 +7,34 @@ layout: default
         <div id="tboc" class="card ">
             <h5 class="px-1 bg-dark-subtle py-1 text-center">Table of Contents</h5>
             <ol class="list-group-numbered">
-                {% for product in page.toc %}
-                <li class="list-group-item"><a href="#{{ product | downcase | replace: ' ', '-' | replace: ':', '' }}">{{ product }}</a></li>
+                {% for header in page.toc %}
+
+                {% assign my_array = header | replace: ", ", "," %}
+
+                {% assign my_array2 = my_array | split: "," %}
+
+                {% if my_array2.size > 1 %}
+                <li class="list-group-item">
+                    <a class="link-underline link-underline-opacity-0 link-underline-opacity-100-hover"
+                       href="#{{ header2 | downcase | replace: ' ', '-' | replace: ':', '' }}">{{ my_array2[0] }}</a>
+                    <ul class="gy-5">
+                        {% for header2 in my_array2 %}
+                        {% if header2 != my_array2[0] %}
+                        <li class=""><a
+                                class="link-underline link-underline-opacity-0 link-underline-opacity-100-hover"
+                                href="#{{ header2 | downcase | replace: ' ', '-' | replace: ':', '' }}">{{ header2 }}</a></li>
+                        {% endif %}
+                        {% endfor %}
+                    </ul>
+                </li>
                 {% else %}
-                The collection is empty.
+                <li class="list-group-item"><a
+                        class="link-underline link-underline-opacity-0 link-underline-opacity-100-hover"
+                        href="#{{ header | downcase | replace: ' ', '-' | replace: ':', '' }}">{{ header }}</a></li>
+                {% endif %}
+
+                {% else %}
+                The Table of Contents is empty.
                 {% endfor %}
             </ol>
         </div>
