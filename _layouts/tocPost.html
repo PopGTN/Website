@@ -6,7 +6,7 @@ layout: default
     <aside class="pt-2  col-12 col-md-3 mb-1 flex-grow-1 position-sticky" style="position: sticky!important;">
         <div id="tboc" class="card ">
             <h5 class="px-1 bg-dark-subtle py-1 text-center">Table of Contents</h5>
-            <ul class=" gy-5">
+            <ul class="list-group-numbered gy-5">
                 {% for header in page.toc %}
 
                 {% assign my_array = header | replace: ", ", "," %}
@@ -14,7 +14,7 @@ layout: default
                 {% assign my_array2 = my_array | split: "," %}
 
                 {% if my_array2.size > 1 %}
-                <li class="">
+                <li class="list-group-item">
                     <a class="link-underline link-underline-opacity-0 link-underline-opacity-100-hover"
                         href="#{{ header2 | downcase | replace: ' ', '-' | replace: ':', '' }}">{{ my_array2[0] }}</a>
                     <ul class="gy-5">
@@ -28,7 +28,7 @@ layout: default
                     </ul>
                 </li>
                 {% else %}
-                <li class=""><a
+                <li class="list-group-item"><a
                         class="link-underline link-underline-opacity-0 link-underline-opacity-100-hover"
                         href="#{{ header | downcase | replace: ' ', '-' | replace: ':', '' }}">{{ header }}</a></li>
                 {% endif %}
