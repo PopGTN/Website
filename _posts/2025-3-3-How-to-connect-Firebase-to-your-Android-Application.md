@@ -17,12 +17,12 @@ toc:
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
   </div>
-<div class="carousel-inner" style="max-height: 350px;">
+<div class="carousel-inner">
     <div class="carousel-item active">
-            <iframe  class='w-100  ' height='350'  src='https://www.youtube.com/embed/X6TjMzZ8eak?si=76ho6nagIPdhbNYq' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' referrerpolicy='strict-origin-when-cross-origin' allowfullscreen></iframe>
+        {% youtube "https://www.youtube.com/watch?v=X6TjMzZ8eak" %}
     </div>
     <div class="carousel-item">
-            <iframe class='w-100  ' height='350' src='https://www.youtube.com/embed/v8GkqTYs6Kg?si=8Ko82rSwR5UydINe' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' referrerpolicy='strict-origin-when-cross-origin' allowfullscreen></iframe>
+        {% youtube "https://www.youtube.com/watch?v=v8GkqTYs6Kg" %}
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
