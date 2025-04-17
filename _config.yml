@@ -1,5 +1,3 @@
-markdown: kramdown
-highlighter: rouge
 
 
 title-Prefix: "JoshuaMC: "
@@ -7,6 +5,7 @@ title-Prefix: "JoshuaMC: "
 collections:
   authors:
     output: true
+
 
 plugins:
   - jekyll-feed
@@ -25,9 +24,11 @@ defaults:
     values:
       layout: "post"
       author: "Joshua Mckenna"
+      permalink: /blog/:title
       header: false
   - scope:
       path: ""
     values:
       layout: "default"
 
+markdown_ext: "markdown,mkdown,mkdn,mkd,md,markdown.liquid,mkdown.liquid,mkdn.liquid,mkd.liquid,md.liquid"
