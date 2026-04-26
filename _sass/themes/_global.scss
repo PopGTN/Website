@@ -1,0 +1,379 @@
+// =============================================================
+//  GLOBAL — structural only, no colours
+//  Fonts, Bootstrap resets, shared component layout.
+//  Colours come entirely from each theme file.
+//  Load order: _global → _sketch → _terminal → _ide
+// =============================================================
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Share+Tech+Mono&display=swap');
+
+// --- Bootstrap navbar reset -----------------------------------
+.navbar .nav-link,
+.navbar .btn-link,
+.navbar .navbar-brand,
+.navbar .dropdown-item {
+  text-decoration: none !important;
+  &:hover, &:focus, &:active {
+    text-decoration: none !important;
+    box-shadow: none !important;
+    outline: none;
+  }
+}
+
+// =============================================================
+//  Shared component STRUCTURE
+//  Only layout / behaviour — zero hard-coded colours.
+//  The default (no theme) values use Bootstrap CSS vars so the
+//  page looks reasonable with plain Bootstrap applied.
+// =============================================================
+
+.sk-border { display: none; }
+
+// --- filter chips ---------------------------------------------
+.theme-filter-btn,
+.sk-tag {
+  display: inline-block;
+  padding: 4px 12px;
+  font-size: .85rem;
+  line-height: 1.5;
+  border: 1px solid var(--bs-border-color, #dee2e6);
+  border-radius: var(--bs-border-radius, .375rem);
+  background: var(--bs-body-bg, #fff);
+  color: var(--bs-body-color, #212529);
+  cursor: pointer;
+  user-select: none;
+  transition: background .15s, color .15s, border-color .15s;
+  box-shadow: var(--bs-box-shadow-sm, none);
+
+  &:hover { background: var(--bs-secondary-bg, rgba(0,0,0,.06)); }
+  &:disabled {
+    opacity: .45;
+    cursor: default;
+    box-shadow: none;
+  }
+  &.is-active,
+  &.sk-tag-active {
+    background:   var(--bs-emphasis-color, #212529);
+    border-color: var(--bs-emphasis-color, #212529);
+    color:        var(--bs-body-bg, #fff);
+  }
+}
+
+// --- section labels -------------------------------------------
+.sk-label {
+  display: block;
+  font-size: .75rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--bs-secondary-color, #6c757d);
+  margin-bottom: 6px;
+}
+
+// --- active filter pills --------------------------------------
+.sk-active-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 10px 2px 12px;
+  font-size: .85rem;
+  background: var(--bs-secondary-bg, #f0f0f0);
+  border: 1px solid var(--bs-border-color, #dee2e6);
+  color: inherit;
+  cursor: default;
+
+  .sk-pill-x {
+    cursor: pointer;
+    opacity: .6;
+    &:hover { opacity: 1; }
+  }
+}
+
+// --- filter sidebar layout ------------------------------------
+.sk-filter-sidebar {
+  position: sticky;
+  top: 76px;
+
+  #source-filters   { flex-direction: column; gap: 6px !important; }
+  #language-filters { gap: 6px !important; }
+  .sk-label { margin-top: 16px; &:first-child { margin-top: 0; } }
+}
+
+.theme-filter-panel {
+  border: 1px solid var(--bs-border-color, rgba(0,0,0,.15));
+  border-radius: var(--bs-border-radius, .375rem);
+  background: var(--bs-body-bg, #fff);
+  box-shadow: var(--bs-box-shadow-sm, none);
+}
+
+// --- filter inputs (search + per-page select) -----------------
+.filter-input {
+  width: 100%;
+  padding: 6px 10px;
+  font-size: .9rem;
+  border: 1px solid var(--bs-border-color, #dee2e6);
+  background: var(--bs-body-bg, #fff);
+  color: var(--bs-body-color, #212529);
+  outline: none;
+  font-family: inherit;
+}
+
+.site-theme-picker {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 1045;
+}
+
+.site-theme-picker__button {
+  border: 1px solid var(--bs-border-color, #dee2e6);
+  background: var(--bs-body-bg, #fff);
+  color: var(--bs-body-color, #212529);
+  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+  padding: .6rem .9rem;
+  border-radius: 999px;
+}
+
+.site-theme-picker__button:hover,
+.site-theme-picker__button:focus,
+.site-theme-picker__button:active,
+.site-theme-picker.show .site-theme-picker__button {
+  background: var(--bs-secondary-bg, #f8f9fa);
+  color: var(--bs-body-color, #212529);
+  border-color: var(--bs-border-color, #dee2e6);
+}
+
+.site-theme-picker__menu {
+  min-width: 12rem;
+  margin-bottom: .5rem;
+}
+
+@media (max-width: 767.98px) {
+  .site-theme-picker {
+    position: static;
+    right: auto;
+    bottom: auto;
+    display: flex;
+    justify-content: flex-end;
+    z-index: auto;
+  }
+
+  .site-theme-picker__button {
+    box-shadow: none;
+  }
+
+  .site-theme-picker__menu {
+    margin-bottom: 0;
+  }
+}
+
+// --- repo status messages -------------------------------------
+.repos-msg {
+  font-size: 1.1rem;
+  color: var(--bs-secondary-color, #6c757d);
+}
+
+.theme-status-text,
+.theme-meta-text {
+  color: var(--bs-secondary-color, #6c757d);
+}
+
+.theme-status-text {
+  font-size: 1.05rem;
+}
+
+.theme-meta-text {
+  font-size: .8rem;
+  font-family: var(--theme-mono-font, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace);
+}
+
+.theme-meta-text-spaced,
+.theme-pager-count {
+  margin-top: 4px;
+  padding: 0 6px;
+}
+
+.theme-code-block {
+  white-space: pre-wrap;
+  font-family: var(--theme-mono-font, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace);
+  font-size: .85rem;
+}
+
+.theme-article {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 2rem 1rem 4rem;
+  color: var(--bs-body-color, inherit);
+}
+
+.theme-article-back {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  color: var(--bs-secondary-color, inherit);
+  text-decoration: none;
+}
+
+.theme-article-back:hover {
+  text-decoration: underline;
+}
+
+.theme-article-meta {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  flex-wrap: wrap;
+  margin-bottom: .75rem;
+  color: var(--bs-secondary-color, #6c757d);
+  font-size: .95rem;
+}
+
+.theme-article-meta a,
+.theme-article-link {
+  color: inherit;
+}
+
+.theme-article-title {
+  margin-bottom: .5rem;
+}
+
+.theme-article-subtitle {
+  margin-bottom: 1.75rem;
+  color: var(--bs-secondary-color, #6c757d);
+  font-size: 1.1rem;
+}
+
+.theme-article-body {
+  line-height: 1.7;
+}
+
+.theme-article-tag {
+  display: inline-block;
+  padding: .15rem .55rem;
+  border: 1px solid var(--bs-border-color, #dee2e6);
+  border-radius: 999px;
+  font-size: .8rem;
+}
+
+.theme-article-tag-compact {
+  font-size: .75rem;
+}
+
+.theme-article-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-top: 2rem;
+}
+
+.theme-article-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--bs-border-color, #dee2e6);
+}
+
+.theme-article-nav-label {
+  margin-bottom: .25rem;
+  color: var(--bs-secondary-color, #6c757d);
+  font-size: .85rem;
+}
+
+.theme-page-content {
+  color: var(--bs-body-color, inherit);
+}
+
+.theme-doc-layout {
+  align-items: start;
+}
+
+.theme-doc-sidebar {
+  position: sticky;
+  top: 88px;
+  align-self: start;
+}
+
+.theme-doc-toc {
+  padding: 1rem;
+}
+
+.theme-doc-toc-title {
+  margin: 0 0 .75rem;
+  padding: .5rem .75rem;
+  border-bottom: 1px solid var(--bs-border-color, #dee2e6);
+  color: var(--bs-emphasis-color, #212529);
+  font-size: 1rem;
+  text-align: center;
+}
+
+.theme-doc-toc a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.theme-doc-toc a:hover {
+  text-decoration: underline;
+}
+
+.theme-doc-main {
+  min-width: 0;
+}
+
+.theme-blog-grid .card {
+  width: 100%;
+}
+
+.theme-blog-card .card-title a {
+  color: inherit;
+}
+
+.theme-page-intro {
+  max-width: 580px;
+}
+
+.theme-header-eyebrow {
+  display: none;
+  width: fit-content;
+  margin: 0 auto .4rem;
+  font-size: .82rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--bs-secondary-color, #6c757d);
+}
+
+.theme-sketch-card-title,
+.theme-sketch-card-body {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  min-width: 0;
+}
+
+.theme-sketch-card-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: inherit;
+}
+
+.theme-sketch-card-body {
+  flex: 1;
+  line-height: 1.45;
+}
+
+.theme-repo-description {
+  overflow: hidden;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+}
+
+// --- sketch-only elements -------------------------------------
+// Hide anything that should only appear in the sketch theme.
+// _sketch.scss un-hides them inside [data-site-theme="sketch"].
+.sk-only { display: none !important; }
+[data-site-theme="sketch"] .sk-only { display: revert !important; }

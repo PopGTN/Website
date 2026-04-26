@@ -1,0 +1,139 @@
+---
+layout: default
+title: README
+header: false
+custom-head-html: '<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>'
+---
+
+<article class="theme-article document mx-auto" id="readme-article">
+
+  <a class="theme-article-back" href="/projects">← back to projects</a>
+
+  <div class="theme-article-meta" id="readme-meta">
+    <span id="readme-repo-link"></span>
+  </div>
+
+  <h1 class="theme-article-title" id="readme-title">Loading…</h1>
+
+  <div class="theme-article-body" id="readme-body">
+    <p class="theme-status-text">Fetching README…</p>
+  </div>
+
+  <div class="theme-article-nav">
+    <a class="theme-article-back" href="/projects">← back to projects</a>
+  </div>
+
+</article>
+
+<script>
+(function () {
+  const params  = new URLSearchParams(window.location.search);
+  const repo    = params.get('repo');
+  const source  = params.get('source') || 'github';
+
+  const GH_USER = 'PopGTN';
+  const BB_USER = 'joshuamckenna';
+
+  const titleEl = document.getElementById('readme-title');
+  const bodyEl  = document.getElementById('readme-body');
+  const linkEl  = document.getElementById('readme-repo-link');
+
+  if (!repo) {
+    titleEl.textContent = 'No repo specified.';
+    bodyEl.innerHTML    = '<p>Add <code>?repo=RepoName&source=github</code> to the URL.</p>';
+    return;
+  }
+
+  document.title = repo + ' — README';
+  titleEl.textContent = repo;
+
+  function githubRepoUrl(repoName) {
+    return repoName.toLowerCase() === GH_USER.toLowerCase()
+      ? `https://github.com/${GH_USER}`
+      : `https://github.com/${GH_USER}/${repoName}`;
+  }
+
+  function githubRepoLabel(repoName) {
+    return repoName.toLowerCase() === GH_USER.toLowerCase()
+      ? `github.com/${GH_USER}`
+      : `github.com/${GH_USER}/${repoName}`;
+  }
+
+  function showError(repoUrl) {
+    bodyEl.innerHTML = `
+      <p class="theme-status-text">
+        No README found for <strong>${repo}</strong>.<br>
+        <a class="theme-article-link" href="${repoUrl}" target="_blank" rel="noopener">View repo ↗</a>
+      </p>`;
+  }
+
+  function absolutizeBitbucketImages(root) {
+    const base = `https://bitbucket.org/${BB_USER}/${repo}/raw/HEAD/`;
+
+    root.querySelectorAll('img[src]').forEach(img => {
+      const src = img.getAttribute('src');
+      if (!src) return;
+      if (/^(https?:|data:|blob:|\/\/)/i.test(src)) return;
+
+      const normalized = src.replace(/^\.?\//, '');
+      img.setAttribute('src', base + normalized);
+    });
+  }
+
+  function absolutizeGitHubImages(root) {
+    const base = `https://raw.githubusercontent.com/${GH_USER}/${repo}/HEAD/`;
+
+    root.querySelectorAll('img[src]').forEach(img => {
+      const src = img.getAttribute('src');
+      if (!src) return;
+      if (/^(https?:|data:|blob:|\/\/)/i.test(src)) return;
+
+      const normalized = src.replace(/^\.?\//, '');
+      img.setAttribute('src', base + normalized);
+    });
+  }
+
+  function render(md, repoUrl) {
+    bodyEl.innerHTML = marked.parse(md);
+    if (source === 'github') absolutizeGitHubImages(bodyEl);
+    if (source === 'bitbucket') absolutizeBitbucketImages(bodyEl);
+    linkEl.innerHTML = `<a class="theme-article-link" href="${repoUrl}" target="_blank" rel="noopener">${repoUrl.replace('https://','')} ↗</a>`;
+  }
+
+  // ── GitHub ────────────────────────────────────────────────────
+  // GitHub contents API is case-insensitive, but we try common variants
+  // as fallback in case the repo uses an unusual casing.
+  if (source === 'github') {
+    const repoUrl = githubRepoUrl(repo);
+    linkEl.innerHTML = `<a class="theme-article-link" href="${repoUrl}" target="_blank" rel="noopener">${githubRepoLabel(repo)} ↗</a>`;
+
+    const ghVariants = ['README.md', 'readme.md', 'Readme.md', 'README.rst', 'README'];
+    function tryGH(i) {
+      if (i >= ghVariants.length) { showError(repoUrl); return; }
+      fetch(`https://api.github.com/repos/${GH_USER}/${repo}/contents/${ghVariants[i]}`)
+        .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+        .then(data => render(decodeURIComponent(escape(atob(data.content))), repoUrl))
+        .catch(() => tryGH(i + 1));
+    }
+    tryGH(0);
+  }
+
+  // ── Bitbucket ─────────────────────────────────────────────────
+  // Bitbucket src API returns raw file content directly (no base64).
+  // Try common README filename variants in order.
+  if (source === 'bitbucket') {
+    const repoUrl  = `https://bitbucket.org/${BB_USER}/${repo}`;
+    const bbVariants = ['README.md', 'readme.md', 'Readme.md', 'README.rst', 'readme.rst', 'README', 'readme'];
+    linkEl.innerHTML = `<a class="theme-article-link" href="${repoUrl}" target="_blank" rel="noopener">bitbucket.org/${BB_USER}/${repo} ↗</a>`;
+
+    function tryNext(i) {
+      if (i >= bbVariants.length) { showError(repoUrl); return; }
+      fetch(`https://api.bitbucket.org/2.0/repositories/${BB_USER}/${repo}/src/HEAD/${bbVariants[i]}`)
+        .then(r => { if (!r.ok) throw new Error(r.status); return r.text(); })
+        .then(md => render(md, repoUrl))
+        .catch(() => tryNext(i + 1));
+    }
+    tryNext(0);
+  }
+})();
+</script>

@@ -1,0 +1,191 @@
+// =============================================================
+//  TERMINAL THEME — Linux green-on-black
+//  Selector: [data-site-theme="terminal"] on <html>
+// =============================================================
+
+// --- tokens ---------------------------------------------------
+[data-site-theme="terminal"] {
+  --tm-bg:         #0a0f0a;
+  --tm-surface:    #0d130d;
+  --tm-green:      #00e060;
+  --tm-green-dim:  #00883a;
+  --tm-amber:      #ffb300;
+  --tm-red:        #ff4444;
+  --tm-cyan:       #00e5ff;
+  --tm-border:     #00883a;
+  --tm-font:       'Share Tech Mono', 'Courier New', monospace;
+}
+
+// --- base -----------------------------------------------------
+[data-site-theme="terminal"] body {
+  background-color: var(--tm-bg) !important;
+  color: var(--tm-green) !important;
+  font-family: var(--tm-font) !important;
+}
+
+// CRT scanline overlay
+[data-site-theme="terminal"] body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,0,0,0.18) 2px,
+    rgba(0,0,0,0.18) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+// --- typography -----------------------------------------------
+[data-site-theme="terminal"] {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--tm-font) !important;
+    color: var(--tm-green) !important;
+    text-shadow: 0 0 8px var(--tm-green), 0 0 2px var(--tm-green);
+  }
+
+  h1::before { content: '# ';   opacity: 0.6; }
+  h2::before { content: '## ';  opacity: 0.6; }
+  h3::before { content: '### '; opacity: 0.6; }
+}
+
+// --- navbar ---------------------------------------------------
+[data-site-theme="terminal"] .navbar {
+  background: #020702 !important;
+  background-image: none !important;
+  border-bottom: 1px solid var(--tm-border) !important;
+  box-shadow: 0 2px 16px rgba(0,224,96,0.15);
+  font-family: var(--tm-font) !important;
+
+  .navbar-brand,
+  .nav-link {
+    color: var(--tm-green) !important;
+    font-family: var(--tm-font) !important;
+    text-shadow: 0 0 6px var(--tm-green-dim);
+  }
+
+  .navbar-brand::before { content: '$ '; color: var(--tm-green-dim); }
+
+  .nav-link:hover {
+    color: #ffffff !important;
+    text-shadow: 0 0 8px var(--tm-green);
+    background: rgba(0,224,96,0.08) !important;
+  }
+}
+
+// --- header ---------------------------------------------------
+[data-site-theme="terminal"] header {
+  background-color: var(--tm-surface) !important;
+  border: 1px solid var(--tm-border);
+  border-left: 4px solid var(--tm-green);
+  box-shadow: 0 0 24px rgba(0,224,96,0.12), inset 0 0 40px rgba(0,0,0,0.5);
+
+  h1::before {
+    content: 'root@joshuamc:~# ';
+    color: var(--tm-green-dim);
+    font-size: 0.55em;
+    display: block;
+    text-shadow: none;
+    opacity: 0.8;
+  }
+}
+
+// --- shared component overrides -------------------------------
+[data-site-theme="terminal"] {
+  .sk-label {
+    color: var(--tm-green-dim);
+    font-family: var(--tm-font);
+    letter-spacing: .1em;
+  }
+
+  .sk-tag {
+    border-color: var(--tm-border);
+    color: var(--tm-green);
+    font-family: var(--tm-font);
+    &:hover     { background: rgba(0,224,96,.08); }
+    &.sk-tag-active { background: var(--tm-green); color: var(--tm-bg); border-color: var(--tm-green); }
+  }
+
+  .sk-active-pill {
+    background: rgba(0,224,96,.08);
+    border-color: var(--tm-border);
+    color: var(--tm-green);
+    font-family: var(--tm-font);
+  }
+}
+
+// --- filter inputs + messages ---------------------------------
+[data-site-theme="terminal"] {
+  .filter-input {
+    font-family: var(--tm-font);
+    font-size: .9rem;
+    color: var(--tm-green);
+    background: var(--tm-bg);
+    border: 1px solid var(--tm-border);
+    &::placeholder { color: var(--tm-green-dim); }
+  }
+
+  .repos-msg {
+    font-family: var(--tm-font);
+    color: var(--tm-green-dim);
+  }
+}
+
+// --- filter sidebar -------------------------------------------
+[data-site-theme="terminal"] .sk-filter-sidebar {
+  border-color: var(--tm-border) !important;
+  background: var(--tm-surface);
+
+  input, select {
+    background: var(--tm-bg) !important;
+    border-color: var(--tm-border) !important;
+    color: var(--tm-green) !important;
+  }
+}
+
+// --- cards ----------------------------------------------------
+[data-site-theme="terminal"] .card {
+  background-color: var(--tm-surface) !important;
+  border: 1px solid var(--tm-border) !important;
+  border-radius: 0 !important;
+  color: var(--tm-green) !important;
+  box-shadow: 0 0 12px rgba(0,224,96,0.1);
+
+  &-title { color: var(--tm-amber) !important; }
+
+  &::before {
+    content: '$ ';
+    color: var(--tm-green-dim);
+    font-family: var(--tm-font);
+    font-size: 0.85rem;
+    display: block;
+    padding: 0.5rem 1rem 0;
+  }
+}
+
+// --- links ----------------------------------------------------
+[data-site-theme="terminal"] {
+  a {
+    color: var(--tm-cyan) !important;
+    text-decoration: none !important;
+
+    &:hover {
+      color: #ffffff !important;
+      text-shadow: 0 0 6px var(--tm-cyan);
+      text-decoration: underline !important;
+    }
+  }
+
+  hr {
+    border-color: var(--tm-border);
+    opacity: 0.5;
+  }
+
+  #main {
+    border-left: 1px solid rgba(0,224,96,0.15);
+    border-right: 1px solid rgba(0,224,96,0.15);
+  }
+}

@@ -1,18 +1,53 @@
 ---
-layout: doc
+layout: default
 ---
 
-<h1>{{ page.title }}</h1>
+<article class="theme-article document mx-auto">
+  <a class="theme-article-back" href="/blog">← back to blog</a>
 
-<p>
-    <hr>
-    {{ page.date | date_to_string }}
-
+  <div class="theme-article-meta">
+    <span>{{ page.date | date: "%b %d, %Y" }}</span>
     {% assign author = site.authors | where: 'short_name', page.author | first %}
     {% if author %}
-    - <a class="link-body-emphasis  link-underline link-opacity-100-hover" href="{{ author.url }}">{{ author.name }}</a>
+    <span>·</span><a href="{{ author.url }}">{{ author.name }}</a>
+    {% elsif page.author %}
+    <span>·</span><span>{{ page.author }}</span>
     {% endif %}
-    <hr>
-</p>
+    {% for tag in page.tags %}
+    <span class="theme-article-tag">{{ tag }}</span>
+    {% endfor %}
+  </div>
 
-{{ content }}
+  <h1 class="theme-article-title">{{ page.title }}</h1>
+
+  {% if page.description %}
+  <p class="theme-article-subtitle">{{ page.description }}</p>
+  {% endif %}
+
+  <div class="theme-article-body">
+    {{ content }}
+  </div>
+
+  {% if page.tags.size > 0 %}
+  <div class="theme-article-tags">
+    {% for tag in page.tags %}
+    <span class="sk-tag">{{ tag }}</span>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <div class="theme-article-nav">
+    <div>
+      {% if page.previous.url %}
+      <div class="theme-article-nav-label">← previous</div>
+      <a href="{{ page.previous.url }}">{{ page.previous.title }}</a>
+      {% endif %}
+    </div>
+    <div class="text-md-end">
+      {% if page.next.url %}
+      <div class="theme-article-nav-label">next →</div>
+      <a href="{{ page.next.url }}">{{ page.next.title }}</a>
+      {% endif %}
+    </div>
+  </div>
+</article>

@@ -1,6 +1,8 @@
 ---
 layout: default
 title: Joshua's Blog
+headerTitle: "Blog"
+headerSubtitle: "Posts, notes, and write-ups"
 
 headerImageRepeat: "repeat"
 headerImageSize: "1.5%"
@@ -10,7 +12,7 @@ headerImage: "/assets/images/logo.webp"
 headerClasses: "bg-custom-blue"
 headerTextClasses: "bg-body-tertiary text-body-emphasis text-body shadow-lg px-5 py-4 mb-5 rounded bg-opacity-75"
 ---
-<div class="container">
+<section class="theme-page-content container py-4">
     <h2>Latest Blog Posts</h2>
 
     <!--<ul>
@@ -29,10 +31,10 @@ headerTextClasses: "bg-body-tertiary text-body-emphasis text-body shadow-lg px-5
         </li>
         {% endfor %}
     </ul>-->
-    <div class="row row-cols-1 row-cols-md-2 g-4">
+    <div class="row row-cols-1 row-cols-md-2 g-4 theme-blog-grid">
         {% for post in site.posts %}
         <div class="col">
-            <div class="card mb-3" style="width: 540px !important;">
+            <div class="card h-100 theme-blog-card">
                 <div class="card-body">
                     {% if post.thumbnail %}
                     <img src="{{ post.thumbnail }}" class="img-thumbnail rounded-start " alt="{{ page.thumbnail-alt }}">
@@ -52,9 +54,9 @@ headerTextClasses: "bg-body-tertiary text-body-emphasis text-body shadow-lg px-5
         </div>
         {% endfor %}
     </div>
-</div>
+</section>
+<section class="theme-page-content container py-2">
 <hr>
-<div class="container">
     <h2>Categorized</h2>
     <p>
         The blogs are Categorized below. So you can find then my posts about certian topics easier.
@@ -69,4 +71,4 @@ headerTextClasses: "bg-body-tertiary text-body-emphasis text-body shadow-lg px-5
         </ul>
         {% endfor %}
     </div>
-</div>
+</section>

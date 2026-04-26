@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(zcat /home/joshua/.claude/projects/-home-joshua-Documents-Website/3607d21b-219f-43bf-a844-24154b5338fe/tool-results/webfetch-1777126959049-b6wo47.bin)",
+      "Bash(tar -x --to-stdout website-redesign/project/scraps/sketch-2026-04-25T13-23-37-epdold.napkin)",
+      "Bash(bundle exec *)"
+    ]
+  }
+}

@@ -1,0 +1,203 @@
+// =============================================================
+//  IDE THEME — VSCode dark aesthetic
+//  Selector: [data-site-theme="ide"] on <html>
+// =============================================================
+
+// --- tokens ---------------------------------------------------
+[data-site-theme="ide"] {
+  --ide-bg:         #1e1e1e;
+  --ide-sidebar:    #252526;
+  --ide-activity:   #333333;
+  --ide-surface:    #2d2d2d;
+  --ide-border:     #3e3e42;
+  --ide-text:       #d4d4d4;
+  --ide-muted:      #858585;
+  --ide-blue:       #569cd6;
+  --ide-green:      #6a9955;
+  --ide-orange:     #ce9178;
+  --ide-yellow:     #dcdcaa;
+  --ide-purple:     #c586c0;
+  --ide-red:        #f44747;
+  --ide-cyan:       #9cdcfe;
+  --ide-statusbar:  #007acc;
+  --ide-font:       'Consolas', 'Courier New', monospace;
+}
+
+// --- base -----------------------------------------------------
+[data-site-theme="ide"] body {
+  background-color: var(--ide-bg) !important;
+  color: var(--ide-text) !important;
+  font-family: var(--ide-font) !important;
+}
+
+// --- typography -----------------------------------------------
+[data-site-theme="ide"] {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--ide-font) !important;
+    color: var(--ide-yellow) !important;
+  }
+
+  h1::before { content: '// '; color: var(--ide-green); }
+  h2::before { content: '/* '; color: var(--ide-green); font-weight: 400; }
+}
+
+// --- navbar ---------------------------------------------------
+[data-site-theme="ide"] .navbar {
+  background: var(--ide-activity) !important;
+  background-image: none !important;
+  border-bottom: 1px solid var(--ide-border) !important;
+  font-family: var(--ide-font) !important;
+
+  .navbar-brand {
+    color: var(--ide-cyan) !important;
+    font-family: var(--ide-font) !important;
+    text-decoration: none !important;
+  }
+
+  .nav-link,
+  .btn-link {
+    color: var(--ide-text) !important;
+    font-family: var(--ide-font) !important;
+    font-size: 0.9rem;
+    border-bottom: 2px solid transparent;
+    text-decoration: none !important;
+
+    &:hover,
+    &.active {
+      color: #ffffff !important;
+      border-bottom-color: var(--ide-statusbar);
+      background: rgba(255,255,255,0.05) !important;
+      text-decoration: none !important;
+    }
+  }
+
+  .dropdown-toggle::after { display: none; }
+}
+
+// --- header (fake editor tab bar) -----------------------------
+[data-site-theme="ide"] header {
+  background-color: var(--ide-sidebar) !important;
+  border: none !important;
+  border-bottom: 3px solid var(--ide-statusbar) !important;
+  position: relative;
+
+  &::before {
+    content: '  index.html  ×';
+    display: block;
+    background: var(--ide-bg);
+    color: var(--ide-text);
+    font-family: var(--ide-font);
+    font-size: 0.8rem;
+    padding: 4px 16px;
+    border-top: 2px solid var(--ide-statusbar);
+    border-right: 1px solid var(--ide-border);
+    width: fit-content;
+    margin-bottom: 1rem;
+  }
+}
+
+// --- shared component overrides -------------------------------
+[data-site-theme="ide"] {
+  .sk-label {
+    color: var(--ide-green);
+    font-family: var(--ide-font);
+    letter-spacing: .06em;
+  }
+
+  .sk-tag {
+    border-color: var(--ide-border);
+    color: var(--ide-text);
+    font-family: var(--ide-font);
+    &:hover     { background: rgba(255,255,255,.06); }
+    &.sk-tag-active { background: var(--ide-blue); color: #fff; border-color: var(--ide-blue); }
+  }
+
+  .sk-active-pill {
+    background: rgba(255,255,255,.05);
+    border-color: var(--ide-border);
+    color: var(--ide-text);
+    font-family: var(--ide-font);
+  }
+}
+
+// --- filter inputs + messages ---------------------------------
+[data-site-theme="ide"] {
+  .filter-input {
+    font-family: var(--ide-font);
+    font-size: .9rem;
+    color: var(--ide-text);
+    background: var(--ide-bg);
+    border: 1px solid var(--ide-border);
+    border-radius: 2px;
+    &::placeholder { color: var(--ide-muted); }
+  }
+
+  .repos-msg {
+    font-family: var(--ide-font);
+    color: var(--ide-muted);
+  }
+}
+
+// --- filter sidebar -------------------------------------------
+[data-site-theme="ide"] .sk-filter-sidebar {
+  border-color: var(--ide-border) !important;
+  background: var(--ide-sidebar);
+
+  input, select {
+    background: var(--ide-bg) !important;
+    border-color: var(--ide-border) !important;
+    color: var(--ide-text) !important;
+  }
+}
+
+// --- cards ----------------------------------------------------
+[data-site-theme="ide"] .card {
+  background-color: var(--ide-surface) !important;
+  border: 1px solid var(--ide-border) !important;
+  border-radius: 4px !important;
+  color: var(--ide-text) !important;
+
+  &-title { color: var(--ide-yellow) !important; }
+  &-text  { color: var(--ide-orange) !important; }
+
+  small { color: var(--ide-green) !important; }
+}
+
+// --- links ----------------------------------------------------
+[data-site-theme="ide"] {
+  a,
+  .btn-link {
+    color: var(--ide-cyan) !important;
+    text-decoration: none !important;
+  }
+
+  a:hover { color: var(--ide-blue) !important; text-decoration: underline !important; }
+
+  .btn-link {
+    &:hover, &:focus { text-decoration: none !important; box-shadow: none !important; }
+  }
+
+  hr { border-color: var(--ide-border); }
+
+  // fake status bar
+  #footer {
+    border-top: 1px solid var(--ide-border);
+    background: var(--ide-statusbar) !important;
+    color: #ffffff;
+    font-family: var(--ide-font);
+    font-size: 0.78rem;
+    padding: 2px 12px;
+
+    &::before {
+      content: ' Git: development   Jekyll   UTF-8   ';
+      opacity: 0.9;
+    }
+  }
+
+  // line-number gutter
+  #main {
+    border-left: 40px solid var(--ide-sidebar);
+    position: relative;
+    counter-reset: ide-lines;
+  }
+}

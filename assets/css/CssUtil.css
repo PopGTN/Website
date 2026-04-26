@@ -33,15 +33,17 @@ footer, #footer {
 }
 .document-fluid h1, .document-fluid h2, .document-fluid h3, .document-fluid h4, .document-fluid h5, .document-fluid h6,
 .document-fluid p, .document-fluid img, .document img {
-    max-width: 75ch;
+    max-width: 90ch;
     @media screen and (max-width: 768px) {
         max-width: 100%;
     }
 }
 
 
-.document, .document * {
-    max-width: 75ch;
+.document > h1, .document > h2, .document > h3, .document > h4, .document > h5, .document > h6,
+.document > p, .document > ul, .document > ol, .document > blockquote, .document > pre,
+.document > table, .document > img {
+    max-width: 90ch;
     @media screen and (max-width: 768px) {
         max-width: 100%;
     }
@@ -49,7 +51,10 @@ footer, #footer {
 
 .document,
 .document-strict {
-    max-width: max(600px, 75ch);
+    width: 100%;
+    max-width: min(100%, 1100px);
+    margin-left: auto;
+    margin-right: auto;
     @media screen and (max-width: 768px) {
         max-width: 100%;
     }
@@ -60,7 +65,7 @@ footer, #footer {
     word-wrap: break-word;
     overflow-wrap: break-word;
     hyphens: auto;
-    max-width: min(100%, 75ch);
+    max-width: min(100%, 90ch);
 
     @media screen and (max-width: 768px) {
         font-size: 16px;

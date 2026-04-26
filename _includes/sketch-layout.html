@@ -1,0 +1,170 @@
+<div id="sketch-layout" aria-hidden="true">
+
+  <!-- pencil cursor -->
+  <div id="sk-pencil" style="position:fixed;top:0;left:0;font-size:1.5rem;pointer-events:none;z-index:10001;will-change:transform;transform:translate(0,0) rotate(35deg);opacity:0;transition:transform 0.09s ease-in-out,opacity 0.2s;">✏️</div>
+
+  <!-- hidden SVG roughness filter -->
+  <svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+    <defs>
+      <filter id="sk-rough" x="-5%" y="-5%" width="110%" height="110%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.025" numOctaves="3" seed="2" result="noise"/>
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.1"
+          xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+    </defs>
+  </svg>
+
+  <!-- sketch canvas -->
+  <div id="sk-canvas">
+
+    <!-- nav box — CSS pill, no SVG needed -->
+    <div class="sk-fade sk-nav-pill" style="animation-delay:.0s">
+      <div class="sk-nav-frame-inner">
+        {% for item in site.data.navigation %}
+        <a href="{{ item.link }}" id="sk-nav-{{ forloop.index }}" data-nav-text="{{ item.name }}" class="sk-nav-word {% if page.url == item.link %}sk-nav-active{% endif %}"></a>
+        {% endfor %}
+        <span style="margin-left:auto;font-family:'Caveat',cursive;font-size:.88rem;color:#8a6a3a;opacity:0;transition:opacity .4s;" id="sk-nav-note">← nav (todo: finalise)</span>
+      </div>
+    </div>
+
+    <!-- hero -->
+    <div class="row g-4 mb-4 sk-hero-row">
+      <div class="col-md-7">
+        <div class="sk-box sk-fade sk-hero-box" style="animation-delay:.08s">
+          <svg class="sk-border" viewBox="0 0 100 100" preserveAspectRatio="none" shape-rendering="geometricPrecision">
+            <path class="sk-draw sk-draw-box" pathLength="100" style="animation-delay:.1s"
+              d="M 3.5,4.2 C 25,1.8 60,5.5 96.5,3.1 C 99.5,25 98.8,62 97.2,96.8 C 72,98.8 48,95.4 3.8,97.5 C 1.2,72 2.8,40 3.5,4.2 Z"
+              fill="none" stroke="var(--sk-ink)" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round"
+              vector-effect="non-scaling-stroke"/>
+          </svg>
+          <div class="sk-box-inner sk-hero-inner">
+            <div class="sk-label">// hero section</div>
+            <h1 id="sk-title" class="sk-title"></h1>
+            <p class="sk-subtitle">↳ developer · writer · tinkerer</p>
+            <div class="mt-4 d-flex gap-3 flex-wrap align-items-center sk-hero-actions">
+              <a href="/blog"     class="sk-btn sk-btn-fill">Read the Blog →</a>
+              <a href="/projects" class="sk-btn">View Projects</a>
+              <span class="sk-annot" style="position:static;">← CTA buttons</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="sk-box sk-fade sk-hero-media-box" style="animation-delay:.18s;padding:0">
+          <div class="sk-box-inner sk-hero-media-inner">
+            <div class="sk-taped-photo">
+              <div class="sk-tape sk-tape-left"></div>
+              <div class="sk-tape sk-tape-right"></div>
+              <div class="sk-hero-media-placeholder">
+                <div class="sk-hero-media-icon">🖼</div>
+                <div class="sk-hero-media-copy">
+                  <span>profile / hero image</span>
+                </div>
+              </div>
+              <div class="sk-photo-caption">↑ drop photo here</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- latest posts -->
+    <div class="sk-section-label sk-fade" style="animation-delay:.28s">
+      <span>// latest posts</span>
+      <svg class="sk-section-rule" viewBox="0 0 200 8" preserveAspectRatio="none">
+        <path d="M 0,4 C 20,2 60,6 100,4 C 140,2 180,5 200,4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      </svg>
+    </div>
+
+    <div class="row g-3 mb-5">
+      {% for post in site.posts limit:2 %}
+      <div class="col-md-4 sk-fade" style="animation-delay:{{ forloop.index | times: 0.1 | plus: 0.3 }}s">
+        <div class="sk-card h-100{% cycle ' sk-card-a', ' sk-card-b' %}">
+          <div class="sk-date">{{ post.date | date: "%b %d, %Y" }}</div>
+          <h3 class="sk-post-title">{{ post.title }}</h3>
+          <p class="sk-post-body">
+            {% if post.description %}{{ post.description | truncate: 90 }}
+            {% else %}{{ post.excerpt | strip_html | truncate: 90 }}{% endif %}
+          </p>
+          <a href="{{ post.url }}" class="sk-read-more">Read more →</a>
+        </div>
+      </div>
+      {% endfor %}
+
+      <!-- TODO sticky note -->
+      <div class="col-md-4 sk-fade" style="animation-delay:.52s">
+        <div class="sk-postit sk-postit-yellow h-100" style="min-height:180px;">
+          <div class="sk-postit-strip"></div>
+          <div class="sk-postit-body">
+            <div class="sk-postit-heading">TODO</div>
+            <div class="sk-postit-item">☐ write more posts</div>
+            <div class="sk-postit-item">☐ add tags page</div>
+            <div class="sk-postit-item">☐ photography section</div>
+            <div class="sk-postit-item">☐ RSS feed</div>
+            <div class="sk-postit-footer">← always growing!</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- about + links -->
+    <div class="row g-3 mb-5">
+      <div class="col-md-8 sk-fade" style="animation-delay:.6s">
+        <div class="sk-box" style="padding:28px 32px;">
+          <svg class="sk-border" viewBox="0 0 100 100" preserveAspectRatio="none" shape-rendering="geometricPrecision">
+            <path class="sk-draw"
+              d="M 3.8,3.5 C 32,0.8 68,5.2 96.2,2.8 C 99.5,32 98.8,68 97.5,97.2 C 68,99.8 35,96.5 3.2,98.2 C 0.5,68 1.8,35 3.8,3.5 Z"
+              fill="none" stroke="var(--sk-ink)" stroke-width="1.4" stroke-dasharray="8 4"
+              stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+          </svg>
+          <div class="sk-box-inner">
+            <div class="sk-label">// about me</div>
+            <p style="font-size:1.25rem;color:var(--sk-ink-soft);line-height:1.6;">
+              I'm a developer who loves building things in the open. This is my corner of the internet — rough edges, work-in-progress posts and all.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- quick links sticky note -->
+      <div class="col-md-4 sk-fade" style="animation-delay:.7s">
+        <div class="sk-postit sk-postit-blue h-100" style="min-height:120px;">
+          <div class="sk-postit-strip sk-postit-strip-blue"></div>
+          <div class="sk-postit-body" style="display:flex;flex-direction:column;justify-content:center;">
+            <div class="sk-postit-heading">Quick Links 🔗</div>
+            <div class="sk-postit-item"><a href="https://github.com/PopGTN"      target="_blank" rel="noopener" class="sk-ext-link">→ GitHub</a></div>
+            <div class="sk-postit-item"><a href="https://twitter.com/popgoesthenoobs" target="_blank" rel="noopener" class="sk-ext-link">→ Twitter/X</a></div>
+            <div class="sk-postit-item"><a href="https://www.linkedin.com/in/joshua-mckenna-a123a2258/" target="_blank" rel="noopener" class="sk-ext-link">→ LinkedIn</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- skills -->
+    <div class="sk-fade mb-5" style="animation-delay:.78s">
+      <div class="sk-label mb-2">// skills &amp; tools</div>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;">
+        <span class="sk-tag" style="transform:rotate(-.3deg)">JavaScript ✓</span>
+        <span class="sk-tag" style="transform:rotate(.4deg)">Android ✓</span>
+        <span class="sk-tag" style="transform:rotate(-.2deg)">Firebase ✓</span>
+        <span class="sk-tag" style="transform:rotate(.3deg)">Jekyll ✓</span>
+        <span class="sk-tag" style="transform:rotate(-.5deg)">CSS ✓</span>
+        <span class="sk-tag" style="transform:rotate(.2deg)">Java ✓</span>
+      </div>
+    </div>
+
+    <!-- footer -->
+    <div class="sk-fade" style="animation-delay:.88s;border-top:1px dashed var(--sk-gold);padding-top:12px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
+      <span style="font-size:.95rem;color:var(--sk-muted-2);">© {{ 'now' | date: "%Y" }} Joshua Mckenna — built with Jekyll</span>
+      <div style="display:flex;gap:18px;align-items:center;">
+        <a href="https://github.com/PopGTN" target="_blank" rel="noopener" class="sk-ext-link">GitHub</a>
+        <a href="/blog"  class="sk-ext-link">Blog</a>
+        <a href="/about" class="sk-ext-link">About</a>
+        <span style="opacity:.4;font-size:.8rem;cursor:pointer;font-family:'Share Tech Mono',monospace;"
+              onclick="document.getElementById('bd-site-theme').click()" title="Switch theme">⬡ theme</span>
+      </div>
+    </div>
+
+  </div><!-- /sk-canvas -->
+</div><!-- /sketch-layout -->

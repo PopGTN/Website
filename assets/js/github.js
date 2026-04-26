@@ -106,9 +106,9 @@ function displayRepositories(repositories) {
                 <h5 class="card-title">${repo.name}</h5>
                  <p class="card-text">${repo.description || 'No description available'}</p>
             </div>
-            
-            <div class="card-body">
+            <div class="card-body d-flex gap-2 flex-wrap">
                 <a href="${repo.html_url}" class="btn btn-primary">View on GitHub</a>
+                <a href="/projects/readme/?repo=${repo.name}" class="sk-btn">Read README</a>
             </div>
           </div>
         </div>

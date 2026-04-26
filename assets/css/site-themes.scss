@@ -1,0 +1,10 @@
+---
+---
+// Entry point — Jekyll compiles this to site-themes.css.
+// Each theme is a self-contained partial; add new themes by
+// creating _sass/themes/_mytheme.scss and @use-ing it here.
+
+@use 'themes/global';
+@use 'themes/sketch';
+@use 'themes/terminal';
+@use 'themes/ide';

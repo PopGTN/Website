@@ -33,6 +33,9 @@ Properties:
 ">
     <div class="mx-auto {{ page.headerTextClasses | default: '' }}">
         <div class="mx-auto flex items-center justify-between">
+            {% if page.headerEyebrow %}
+            <div class="theme-header-eyebrow">{{ page.headerEyebrow }}</div>
+            {% endif %}
             <h1 class="display-1" style="
                 width: fit-content;
                 margin: auto;

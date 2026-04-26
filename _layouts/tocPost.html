@@ -2,11 +2,11 @@
 layout: default
 ---
 
-<div class="row">
-    <aside class="pt-2  col-12 col-md-3 mb-1 flex-grow-1 position-sticky" style="position: sticky!important;">
-        <div id="tboc" class="card ">
-            <h5 class="px-1 bg-dark-subtle py-1 text-center">Table of Contents</h5>
-            <ul class="list-group-numbered gy-5">
+<div class="theme-doc-layout row g-4">
+    <aside class="theme-doc-sidebar col-12 col-md-4 col-xl-3">
+        <div id="tboc" class="theme-filter-panel theme-doc-toc">
+            <h5 class="theme-doc-toc-title">Table of Contents</h5>
+            <ul class="list-group-numbered gy-2 mb-0">
                 {% for header in page.toc %}
 
                 {% assign my_array = header | replace: ", ", "," %}
@@ -39,28 +39,20 @@ layout: default
             </ul>
         </div>
     </aside>
-    <main id="main-container" class="body-color pt-2 col-12 col-md-9">
-        <article class="document">
-            <h1>{{ page.title }}</h1>
-
-            <div>
-                <hr>
-                <p>
-                    {{ page.date | date_to_string }}
-
-                    {% assign author = site.authors | where: 'short_name', page.author | first %}
-                    {% if author %}
-                    - <a class="link-underline link-underline-opacity-0" href="{{ author.url }}">{{ author.name }}</a>
-                    {% endif %}
-                </p>
-                <hr>
+    <main id="main-container" class="theme-doc-main col-12 col-md-8 col-xl-9">
+        <article class="theme-article theme-page-content document">
+            <div class="theme-article-meta">
+                <span>{{ page.date | date: "%b %d, %Y" }}</span>
+                {% assign author = site.authors | where: 'short_name', page.author | first %}
+                {% if author %}
+                <span>·</span><a href="{{ author.url }}">{{ author.name }}</a>
+                {% endif %}
             </div>
-
+            <h1 class="theme-article-title">{{ page.title }}</h1>
+            {% if page.description %}
+            <p class="theme-article-subtitle">{{ page.description }}</p>
+            {% endif %}
             {{ content }}
-
         </article>
     </main>
-    <!--        <aside class="pt-2  col-auto flex-fill" style="position: sticky">
-
-            </aside>-->
 </div>

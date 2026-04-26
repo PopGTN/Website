@@ -2,11 +2,11 @@
 layout: default
 ---
 
-<div class="row">
-    <aside class="pt-2  col-12 col-md-3 mb-1" style="position: sticky">
-        <div id="tboc" class="card ">
-            <h5 class="px-1 bg-dark-subtle py-1 text-center">Table of Contents</h5>
-            <ol class="list-group-numbered">
+<div class="theme-doc-layout row g-4">
+    <aside class="theme-doc-sidebar col-12 col-md-4 col-xl-3">
+        <div id="tboc" class="theme-filter-panel theme-doc-toc">
+            <h5 class="theme-doc-toc-title">Table of Contents</h5>
+            <ol class="list-group-numbered mb-0">
                 {% for header in page.toc %}
 
                 {% assign my_array = header | replace: ", ", "," %}
@@ -39,12 +39,9 @@ layout: default
             </ol>
         </div>
     </aside>
-    <main id="main-container" class="body-color pt-2 col-12 col-md-9">
-        <article class="document-p">
+    <main id="main-container" class="theme-doc-main col-12 col-md-8 col-xl-9">
+        <article class="theme-article theme-page-content document-p">
             {{ content }}
         </article>
     </main>
-    <!--        <aside class="pt-2  col-auto flex-fill" style="position: sticky">
-
-            </aside>-->
 </div>

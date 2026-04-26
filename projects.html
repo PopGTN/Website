@@ -1,91 +1,166 @@
 ---
 layout: default
 title: Projects
-
-headerImageRepeat: "repeat"
-headerImageSize: "1.5%"
-headerImagePosition: top
-headerHeight: 300px
-headerImage: "/assets/images/logo.webp"
-headerClasses: "bg-custom-blue"
-headerTextClasses: "bg-body-tertiary text-body-emphasis text-body shadow-lg px-5 py-4 mb-5 rounded bg-opacity-75"
-
-padding-x: true
-padding-y: true
-custom-css: "
-    .card  {
-        min-height: 100%;
-    }
-
-    /*
-    .card-description {
-        flex: 1 0 auto !important;
-    }
-
-    .card-button {
-        flex-shrink: 0 !important;
-    }
-*/
-
-"
-
+headerTitle: "Projects"
+headerSubtitle: "a collection of work from GitHub & Bitbucket"
+headerEyebrow: "// projects"
+headerHeight: 240px
+headerTextClasses: "theme-page-intro"
 ---
 
+<div class="px-3 px-md-4 pt-4 pb-5">
 
+  <!-- ── Main row: sidebar + grid ────────────────────────────── -->
+  <div class="row g-4 align-items-start">
 
+    <!-- ── Sidebar: search, source, language ───────────────── -->
+    <div class="col-lg-3 col-xl-2">
+      <div class="theme-filter-panel sk-box sk-filter-sidebar sk-fade" style="padding:20px 18px;animation-delay:.1s">
+        <svg class="sk-border sk-only" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <path class="sk-draw" style="animation-delay:.12s"
+            d="M2,2 Q99,1 98,3 Q100,98 97,100 Q1,100 2,99 Q0,2 2,2Z"
+            fill="none" stroke="#1a1208" stroke-width="1.5" stroke-dasharray="6 3" vector-effect="non-scaling-stroke"/>
+        </svg>
+        <div class="sk-box-inner">
 
-<div class="">
-    <div class="bg-secondary-subtle bg-gradient text-secondary  px-0 mx-0 ">
-        <div class="mx-5 py-3">
-        <h3>Github Repository's</h3>
+          <div class="sk-label">// search</div>
+          <input id="repo-search"
+                 class="filter-input form-control form-control-sm"
+                 type="search"
+                 placeholder="search repositories…"
+                 autocomplete="off">
 
-        Down below is a list of all my Repositorys from my github page there ranked from the most active to the least
-        active Repository.
+          <div class="sk-label">// source</div>
+          <div class="d-flex flex-wrap" id="source-filters">
+            <button class="btn btn-outline-secondary btn-sm theme-filter-btn is-active" data-source="all">All</button>
+            <button class="btn btn-outline-secondary btn-sm theme-filter-btn" data-source="github">GitHub</button>
+            <button class="btn btn-outline-secondary btn-sm theme-filter-btn" data-source="bitbucket">Bitbucket</button>
+          </div>
+
+          <div id="language-filter-group" style="margin-top:18px;">
+            <div class="sk-label">// language</div>
+            <div class="d-flex flex-wrap" id="language-filters">
+              <span class="theme-meta-text">Loading…</span>
+            </div>
+          </div>
+
         </div>
+      </div>
     </div>
-    <div>
-        <div class="container-fluid pt-5">
-            <div class="row row-cols-1 mx-md-3 gy-3 gy-md-5 row-cols-md-2" id="repositories-list"></div>
-        </div>
-        <div class="container mt-4">
-            <ul class="pagination justify-content-center" id="pagination">
-                <li class="page-item">
-                    <a id="previous-page" class="page-link" href="javascript:void(0);"
-                       onclick="previousPage()"><i class="bi bi-chevron-double-left"></i>Previous</a>
-                </li>
-                <li class="page-item">
-                    <a class="page-link" href="javascript:void(0);" onclick="nextPage()"> Next <i class="bi bi-chevron-double-right"></i></a>
-                </li>
+
+    <!-- ── Main content ────────────────────────────────────── -->
+    <div class="col-lg-9 col-xl-10 sk-fade" style="animation-delay:.18s">
+
+      <div class="sk-proto-pad">
+
+        <!-- ruler along top -->
+        <svg class="sk-tool-ruler" viewBox="0 0 800 22" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <pattern id="sk-tick-minor" x="0" y="0" width="10" height="22" patternUnits="userSpaceOnUse">
+              <line x1="0" y1="15" x2="0" y2="22" stroke="#b09530" stroke-width="0.7"/>
+            </pattern>
+            <pattern id="sk-tick-mid" x="0" y="0" width="50" height="22" patternUnits="userSpaceOnUse">
+              <line x1="0" y1="11" x2="0" y2="22" stroke="#b09530" stroke-width="1"/>
+            </pattern>
+            <pattern id="sk-tick-major" x="0" y="0" width="100" height="22" patternUnits="userSpaceOnUse">
+              <line x1="0" y1="7" x2="0" y2="22" stroke="#987820" stroke-width="1.3"/>
+            </pattern>
+          </defs>
+          <rect x="0" y="0" width="800" height="22" fill="#f2df70"/>
+          <rect x="0" y="0" width="800" height="22" fill="url(#sk-tick-minor)"/>
+          <rect x="0" y="0" width="800" height="22" fill="url(#sk-tick-mid)"/>
+          <rect x="0" y="0" width="800" height="22" fill="url(#sk-tick-major)"/>
+          <rect x="0" y="0" width="800" height="22" fill="none" stroke="#c8a820" stroke-width="1"/>
+          <text x="100" y="7" font-family="'Share Tech Mono',monospace" font-size="6" fill="#7a6010" text-anchor="middle">10</text>
+          <text x="200" y="7" font-family="'Share Tech Mono',monospace" font-size="6" fill="#7a6010" text-anchor="middle">20</text>
+          <text x="300" y="7" font-family="'Share Tech Mono',monospace" font-size="6" fill="#7a6010" text-anchor="middle">30</text>
+          <text x="400" y="7" font-family="'Share Tech Mono',monospace" font-size="6" fill="#7a6010" text-anchor="middle">40</text>
+          <text x="500" y="7" font-family="'Share Tech Mono',monospace" font-size="6" fill="#7a6010" text-anchor="middle">50</text>
+          <text x="600" y="7" font-family="'Share Tech Mono',monospace" font-size="6" fill="#7a6010" text-anchor="middle">60</text>
+          <text x="700" y="7" font-family="'Share Tech Mono',monospace" font-size="6" fill="#7a6010" text-anchor="middle">70</text>
+        </svg>
+
+        <!-- hole punches left edge -->
+        <svg class="sk-tool-holes" viewBox="0 0 28 320" aria-hidden="true">
+          <style>.sk-hc{fill:var(--sk-paper);stroke:#b0a898;stroke-width:1.5;}</style>
+          <circle class="sk-hc" cx="14" cy="56"  r="11"/>
+          <circle class="sk-hc" cx="14" cy="160" r="11"/>
+          <circle class="sk-hc" cx="14" cy="264" r="11"/>
+        </svg>
+
+
+        <!-- pencil resting bottom-right (eraser LEFT, tip RIGHT) -->
+        <svg class="sk-tool-pencil" viewBox="0 0 240 16" aria-hidden="true">
+          <!-- end cap -->
+          <rect x="0" y="1" width="20" height="14" fill="#c8c4c0" rx="1"/>
+          <!-- eraser -->
+          <rect x="2" y="4" width="14" height="8" fill="#f0a0a8" rx="1"/>
+          <!-- ferrule band -->
+          <rect x="18" y="0" width="5" height="16" fill="#a8a4a0"/>
+          <!-- body -->
+          <rect x="23" y="2" width="178" height="12" fill="#ffd022"/>
+          <rect x="23" y="2" width="178" height="12" fill="none" stroke="#c8a010" stroke-width="0.8"/>
+          <line x1="23" y1="8" x2="201" y2="8" stroke="#c8a010" stroke-width="0.5" opacity=".3"/>
+          <!-- sharpened wood cone -->
+          <polygon points="201,2 201,14 222,8" fill="#d4922a"/>
+          <!-- graphite tip -->
+          <polygon points="218,6 218,10 228,8" fill="#2a2826"/>
+        </svg>
+
+        <!-- corner doodle: bottom-left annotation -->
+        <svg class="sk-wb-doodle" style="bottom:16px;left:52px;width:130px;height:28px;opacity:.45;" viewBox="0 0 130 28" aria-hidden="true">
+          <text x="2" y="20" font-family="Caveat,cursive" font-size="14" fill="#2255cc">// prototype v1</text>
+        </svg>
+
+        <!-- corner doodle: arrow + label top right -->
+        <svg class="sk-wb-doodle" style="top:40px;right:16px;width:110px;height:32px;opacity:.5;" viewBox="0 0 110 32" aria-hidden="true">
+          <text x="4" y="20" font-family="Caveat,cursive" font-size="13" fill="#cc2222" transform="rotate(.6,55,16)">click to open ↗</text>
+        </svg>
+
+        <!-- toolbar: sort left · active pills centre · per-page right -->
+        <div class="d-flex align-items-center gap-3 mb-3 flex-wrap sk-wb-toolbar">
+          <div class="dropdown" id="sort-filters">
+            <button class="btn btn-outline-secondary btn-sm theme-filter-btn dropdown-toggle" id="sort-menu-button" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Sort: Last Updated ↓
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="sort-menu-button">
+              <li><button class="dropdown-item active" type="button" data-sort="updated" data-dir="desc">Last Updated ↓</button></li>
+              <li><button class="dropdown-item" type="button" data-sort="updated" data-dir="asc">Last Updated ↑</button></li>
+              <li><button class="dropdown-item" type="button" data-sort="created" data-dir="desc">Date Created ↓</button></li>
+              <li><button class="dropdown-item" type="button" data-sort="created" data-dir="asc">Date Created ↑</button></li>
+              <li><button class="dropdown-item" type="button" data-sort="name" data-dir="asc">Name A–Z</button></li>
+              <li><button class="dropdown-item" type="button" data-sort="name" data-dir="desc">Name Z–A</button></li>
             </ul>
+          </div>
+          <div id="active-filters" style="flex:1;min-width:0;display:flex;flex-wrap:wrap;gap:6px;align-items:center;"></div>
+          <div style="display:flex;align-items:center;gap:6px;white-space:nowrap;flex-shrink:0;">
+            <span class="sk-label" style="margin:0;">Show:</span>
+            <div class="dropdown" id="per-page-menu">
+              <button class="btn btn-outline-secondary btn-sm theme-filter-btn dropdown-toggle" id="per-page-button" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                12
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="per-page-button">
+                <li><button class="dropdown-item active" type="button" data-per-page="12">12</button></li>
+                <li><button class="dropdown-item" type="button" data-per-page="24">24</button></li>
+                <li><button class="dropdown-item" type="button" data-per-page="48">48</button></li>
+                <li><button class="dropdown-item" type="button" data-per-page="0">All</button></li>
+              </ul>
+            </div>
+          </div>
         </div>
+
+        <!-- repo grid -->
+        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4" id="repos-list">
+          <div class="col"><p class="repos-msg">Loading repositories…</p></div>
+        </div>
+
+        <!-- pager -->
+        <div class="d-flex align-items-center gap-3 mt-4" id="repos-pager"></div>
+
+      </div><!-- /sk-proto-pad -->
+
     </div>
-    <script src="/assets/js/github.js"></script>
+  </div>
 </div>
 
-<div class="">
-    <div class="bg-secondary-subtle bg-gradient text-secondary  px-0 mx-0 ">
-        <div class="mx-5 py-3">
-            <h3>BitBucket Repository's</h3>
-
-            Down below is a list of all my Repositorys from my BitBucket account there ranked from the most active to the least
-            active Repository.
-        </div>
-    </div>
-    <div>
-        <div class="container-fluid pt-5">
-            <div class="row row-cols-1 mx-md-3 gy-3 gy-md-5 row-cols-md-2" id="bb-repositories-list"></div>
-        </div>
-        <div class="container mt-4">
-            <ul class="pagination justify-content-center" id="bb-pagination">
-                <li class="page-item">
-                    <a id="bb-previous-page" class="page-link" href="javascript:void(0);"
-                       onclick="bbPreviousPage()"><i class="bi bi-chevron-double-left"></i>Previous</a>
-                </li>
-                <li class="page-item">
-                    <a class="page-link" href="javascript:void(0);" onclick="bbNextPage()"> Next <i class="bi bi-chevron-double-right"></i></a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <script src="/assets/js/bitbucket.js"></script>
-</div>
+<script src="/assets/js/repos.js"></script>
